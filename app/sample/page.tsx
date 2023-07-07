@@ -1,34 +1,55 @@
-const drinkOptions = ['Drink', 'Tea', 'Coffee'];
-const teaOptions = ['Tea', 'Green Tea', 'White Tea'];
+'use client'
+import { useState } from 'react';
 
-function MyComponent() {
-  const [selectedDrink, setSelectedDrink] = useState('');
-  const [selectedTea, setSelectedTea] = useState('');
+const MyComponent = () => {
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedSubCategory, setSelectedSubCategory] = useState('');
 
-  const handleDrinkChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedDrink(event.target.value);
-    setSelectedTea('');
+  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCategory(event.target.value);
+    setSelectedSubCategory('');
   };
 
-  const handleTeaChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedTea(event.target.value);
+  const handleSubCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedSubCategory(event.target.value);
   };
 
   return (
     <div>
-      <select value={selectedDrink} onChange={handleDrinkChange}>
-        {drinkOptions.map((option) => (
-          <option key={option} value={option}>{option}</option>
-        ))}
+      <label htmlFor="category">Select a category:</label>
+      <select id="category" value={selectedCategory} onChange={handleCategoryChange}>
+        <option value="">-- Select Category --</option>
+        <option value="drinks">Drinks</option>
+        <option value="fruits">Fruits</option>
       </select>
 
-      {selectedDrink === 'Tea' && (
-        <select value={selectedTea} onChange={handleTeaChange}>
-          {teaOptions.map((option) => (
-            <option key={option} value={option}>{option}</option>
-          ))}
-        </select>
+      {selectedCategory === 'drinks' && (
+        <div>
+          <label htmlFor="drinks">Select a drink:</label>
+          <select id="drinks" value={selectedSubCategory} onChange={handleSubCategoryChange}>
+            <option value="">-- Select Drink --</option>
+            <option value="tea">Tea</option>
+            <option value="coffee">Coffee</option>
+          </select>
+        </div>
+      )}
+
+      {selectedCategory === 'fruits' && (
+        <div>
+          <label htmlFor="fruits">Select a fruit:</label>
+          <select id="fruits" value={selectedSubCategory} onChange={handleSubCategoryChange}>
+            <option value="">-- Select Fruit --</option>
+            <option value="oranges">Oranges</option>
+            <option value="pineapples">Pineapples</option>
+          </select>
+        </div>
+      )}
+
+      {selectedSubCategory && (
+        <p>You selected: {selectedCategory} - {selectedSubCategory}</p>
       )}
     </div>
   );
-}
+};
+
+export default MyComponent;
