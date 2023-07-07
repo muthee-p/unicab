@@ -35,10 +35,7 @@ const Driver = () => {
   
   const handlePassportUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
   const file = event.target.files && event.target.files[0];
-  if (file) {
-    // Do something with the uploaded file
-    console.log('Uploaded file:', file);
-  }
+  
   };
 
   const handleIDUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
