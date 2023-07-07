@@ -62,8 +62,8 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
   };
 
   return (
-    <div className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <form className='flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] md:min-w-[40%]'>
+    <div className='flex min-h-screen flex-col items-center justify-between md:p-24 p-10'>
+      <form className='flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] md:min-w-[40%] min-w-[18rem]'>
 
       	{section === 1 && 
       		<div className='flex flex-col'>
@@ -88,9 +88,9 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         
         {section === 2 && 
         	<div className='flex flex-col'>
-        		<label className=' mt-4 mb-4 text-xl'>Choose transportation means</label>
+        		<label className=' mt-4 mb-4'>Choose transportation means</label>
         			<select id='ride' value={ride} onChange={handleRide}
-        				className= 'text-gray-500 rounded-lg p-2'>
+        				className= 'text-gray-500 rounded-lg p-2 mt-4'>
           			<option value="" className='rounded-lg p-2 mt-4'
           				>-- Select Ride --</option>
           			{rideOptions.map((option) => (
@@ -136,7 +136,7 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     	}
         
         {section === 4 && 
-        	<div className='flex flex-col items-center'>
+        	<div className='flex flex-col w-[17rem]'>
         		<label className=' mt-4 text-xl'>Uploads</label>
         			<label className=' mt-4'>Upload your passport photo</label>
 						<input type="file" accept="image/*" 
