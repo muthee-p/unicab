@@ -7,8 +7,14 @@ const hundaiOptions = ['golf', 'tourang'];
 
 const colors = ['red', 'orange', 'gray', 'black', 'blue', 'green','pink', 'purple']
 
+type BodaDetailsProps = {
+  selectedBodaBrand: string;
+  handleBodaBrand: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  selectedRide: string;
+  handleSelectedRide: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+};
 
-const BodaDetails = ({ selectedBodaBrand, handleBodaBrand, selectedRide, handleSelectedRide }) => (
+const BodaDetails = ({ selectedBodaBrand, handleBodaBrand, selectedRide, handleSelectedRide } : BodaDetailsProps) => (
   <>
     <h3 className='mt-4 mb-4 text-xl'>Motocycle Details</h3>
             <label className=' mt-4'>Choose Motocycle brand</label>
