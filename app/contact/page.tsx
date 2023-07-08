@@ -2,7 +2,7 @@
 
 const Contact = () => {
 	return (
-		<div>
+		<div className="main_div">
 			 Welcome Contact Center
 			<h3>Faqs section</h3>
 			

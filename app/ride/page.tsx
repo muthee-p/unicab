@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Ride = () => {
 	return (
-		<div>
+		<div className="main_div">
 			Welcome to Unicab
 			<p>scan here to download app</p>
 			<Link href='/'>

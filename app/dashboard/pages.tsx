@@ -2,7 +2,7 @@
 
 const Dashboard = () => {
 	return (
-		<div>
+		<div className="main_div">
 			Welcome to driver Dashboard
 			
 		</div>

@@ -3,13 +3,13 @@ import Link from 'next/link';
 
 const Drive = () => {
 	return (
-		<div>
+		<div className="main_div">
 			Welcome to Unicab Driver
 			<Link href='/login'>
-				<button>Login</button>
+				<button className="main_btn">Login</button>
 			</Link>
 			<Link href='/register'>
-				<button>Become a driver</button>
+				<button className="main_btn">Become a driver</button>
 			</Link>
 		</div>
 		)
