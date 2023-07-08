@@ -8,7 +8,7 @@ const rideOptions = ['car', 'bodaboda'];
 
 const colors = ['red', 'orange', 'gray', 'black', 'blue', 'green','pink', 'purple']
 
-const Driver = () => {
+const DriverForm = () => {
   const [ride, setRide] = useState('');
   const [selectedRide, setSelectedRide] = useState('');
   const [selectedCarBrand, setSelectedCarBrand] = useState('');
@@ -167,4 +167,4 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
   );
 };
 
-export default Driver;
+export default DriverForm;
