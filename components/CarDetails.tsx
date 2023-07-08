@@ -6,8 +6,14 @@ const volkswagenOptions = ['golf', 'tourang'];
 
 const colors = ['red', 'orange', 'gray', 'black', 'blue', 'green','pink', 'purple']
 
+type CarDetailsProps = {
+  selectedCarBrand: string;
+  handleCarBrand: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  selectedRide: string;
+  handleSelectedRide: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+};
 
-const CarDetails = ({ selectedCarBrand, handleCarBrand, selectedRide, handleSelectedRide }) => (
+const CarDetails = ({ selectedCarBrand, handleCarBrand, selectedRide, handleSelectedRide }: CarDetailsProps ) => (
   <>
     <h3 className='mt-4 mb-4 text-xl'>Vehicle Details</h3>
             <label className=' mt-4'>Choose vehicle brand</label>
