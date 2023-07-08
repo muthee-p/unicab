@@ -19,6 +19,7 @@ const Driver = () => {
     setRide(event.target.value);
     setSelectedRide('');
     setSelectedCarBrand('');
+    setSelectedBodaBrand('');
   };
   
   const handleSelectedRide = (event: React.ChangeEvent<HTMLSelectElement>) => {

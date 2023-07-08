@@ -32,7 +32,7 @@ const Nav = () => {
                 <Link href="/about"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Us
                 </Link>
-                <Link href="/services"
+                <Link href="/driver"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Drive
                 </Link>
                 <Link href="/contact"
@@ -73,7 +73,7 @@ const Nav = () => {
           <Link href="/about"
            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About us
           </Link>
-          <Link href="/services"
+          <Link href="/driver"
           className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Drive
           </Link>
           <Link href="/contact"
