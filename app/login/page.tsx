@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SigninButton from '@components/SigninButton'
 
 const Drive = () => {
 	return (
@@ -18,9 +19,7 @@ const Drive = () => {
 				<button className="main_btn">Login</button>
 			</form>
 
-			<Link href='/register'>
-				<button className="main_btn">Continue with google</button>
-			</Link>
+			<SigninButton />
 			<p>Don't have an account?</p>
 			<Link href='/register'>
 				<p>Register</p>
