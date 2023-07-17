@@ -1,8 +1,18 @@
 const carBrands = ['Audi', 'Suzuki', 'Toyota', 'Volkswagen'];
-const audiOptions = ['008', 'the 107', 'branda'];
-const suzukiOptions = ['s9008', 'Tokyo', 'kyoto'];
-const toyotaOptions = ['Vits', 'Probox', 'Mazda'];
-const volkswagenOptions = ['golf', 'tourang'];
+
+const audiOptions = ['A-series', 'Q-series'];
+const suzukiOptions = ['Alto'];
+const toyotaOptions = ['Vitz', 'Probox', 'haice','sienta','Ractis','passo'];
+const mazdaOptions = ['demio']
+const mitsubishiOptions = ['lancer']
+const peugeotOptions = ['peugeot']
+const volkswagenOptions = ['golf', 'tourang', 'jetta', 'Persert'];
+const volvoOptions = ['Volvo']
+const isuzuOptions = ['isuzu']
+const bmwOptions = ['BMW']
+const hondaOptions = ['fit']
+const hyndaiOptions = ['Hyndai']
+const nissanOptions = ['Note']
 
 const colors = ['red', 'orange', 'gray', 'black', 'blue', 'green','pink', 'purple']
 

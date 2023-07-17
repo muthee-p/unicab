@@ -1,9 +1,20 @@
-const bodaBrands = ['Yamaha', 'Kawasaki', 'Boxer', 'Hundai'];
+const bodaBrands = ['Yamaha', 'Kawasaki', 'Boxer', 'Hundai']; 
 
-const yamahaOptions = ['008', 'the 107', 'branda'];
-const kawasakiOptions = ['s9008', 'Tokyo', 'kyoto'];
-const boxerOptions = ['Vits', 'Probox', 'Mazda'];
-const hundaiOptions = ['golf', 'tourang'];
+const yamahaOptions = ['crux'];
+const kawasakiOptions = ['Kawasaki'];
+const boxerOptions = ['Bajaj Boxer'];
+const hondaOptions = ['ace'];
+const suzukiOptions = ['']
+const rangerOptions = ['']
+const shinerayOptions = ['']
+const captainOptions = ['']
+const tigerOptions = ['']
+const dugatiOptions = ['']
+const bmwOptions = ['']
+const harleyDavidsonOptions = ['']
+const indianaOptions = ['']
+const tvsOptions = ['']
+const kiboOptions = ['']
 
 const colors = ['red', 'orange', 'gray', 'black', 'blue', 'green','pink', 'purple']
 
