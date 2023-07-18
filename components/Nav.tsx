@@ -1,14 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
+//import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Nav = () => {
-  const {data: session} = useSession();
-  const [providers, setProviders] = useState(null);
 
 
   const [isOpen, setIsOpen] = useState(false);
@@ -16,15 +14,6 @@ const Nav = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  useEffect(() => {
-    const setUpProviders = async () =>{
-      const response = await getProviders();
-
-      setProviders(response);
-    }
-    setUpProviders();
-  }, [])
 
   return (
     <nav className="bg-gray-700 w-full fixed z-20 shadow-lg">
@@ -45,6 +34,9 @@ const Nav = () => {
             <div className="hidden md:block">
             
               <div className="ml-10 flex items-baseline space-x-4">
+              <Link href="/ride"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Get a Ride
+                </Link>
                 <Link href="/about"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Us
                 </Link>
@@ -55,42 +47,7 @@ const Nav = () => {
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact us
                 </Link>
               </div>
-              {session?.user ? (
-                <div className= 'flex gap-3 md:gap-5'>
-            <p > Howdy, &#32;{session?.user.name}
-            </p>
-            <Link href='/dashboard' className='black_btn'>
-            Dashbord
-            </Link>
-            <button type='button' 
-            onClick={signOut} className='outline_btn'>
-            Sign Out
-            </button>
-
-            <div>
-            <Image src={session?.user.image}
-              alt='profile'
-              width={37}
-              height={37}
-              className='rounded-full'
-              onClick={() => setToggleDropdown(false)}
-              />
-            </div>
-            </div>
-            ):(
-            <>
-
-              {providers && Object.values(providers).map((provider) =>(
-                <button type='button'
-                  key={provider.name}
-                  onClick={() =>signIn(provider.id)}
-                  className='main_btn'
-                >
-                  Sign In
-                </button>
-            ))}
-          </>
-              )}
+    
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">
@@ -122,6 +79,9 @@ const Nav = () => {
 
       <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
         <div className="px-2 pt-2 pb-3 sm:px-3">
+         <Link href="/ride"
+           className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Get a Ride
+          </Link>
           <Link href="/about"
            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About us
           </Link>
