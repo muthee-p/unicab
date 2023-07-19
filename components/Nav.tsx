@@ -4,10 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import SigninButton from './SigninButton'
+
 //import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Nav = () => {
-
 
   const [isOpen, setIsOpen] = useState(false);
 
