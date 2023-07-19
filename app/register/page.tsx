@@ -1,7 +1,8 @@
-import Link from 'next/link';
-import { PrismaClient } from '@prisma/client';
+'use client'
 
-const prisma = new PrismaClient();
+import { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation'
 
 type RegisterFormData = {
   name: string;
@@ -10,56 +11,91 @@ type RegisterFormData = {
 };
 
 const Register = () => {
+	const router = useRouter();
+  const [formData, setFormData] = useState<RegisterFormData>({
+    name: '',
+    email: '',
+    password: '',
+  });
 
-	 const onSubmit = async (data: RegisterFormData) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     try {
-      await prisma.user.create({
-        data: {
-          name: data.name,
-          email: data.email,
-          password: data.password,
+      const response = await fetch('/api/user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify(formData),
       });
-      console.log('User registered successfully!');
+
+      if (!response.ok) {
+        throw new Error('Registration failed');
+
+      }
+			router.push('/driverForm')
+     
     } catch (error) {
-      console.error('Error registering user:', error);
+      console.error(error);
     }
   };
 
-	return (
-		<div className="main_div">
-			<form 
-			onSubmit={handleSubmit(onSubmit)}
-			className='flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] md:min-w-[40%] min-w-[18rem]'>
-				<label className='mb-4 mt-4'>Register to Drive</label>
-        		<label className='mb-4 mt-4'>Your name</label>
-        			<input type='text' 
-        				placeholder='example: John Omolo' 
-        				className='rounded-lg p-2 mt-4' />
-        		<label className='mt-4'>Your email</label>
-        			<input type='email' 
-        				placeholder='example: john369@gmail.com' 
-        				className='rounded-lg p-2 mt-4' />
-        		
-        		<label className=' mt-4'>Password</label>
-        		<input type='password' 
-        			className='rounded-lg p-2 mt-4' />
-        		<label className=' mt-4'>Confirm Password</label>
-        		<input type='password' 
-        			className='rounded-lg p-2 mt-4' />
-				<button className="main_btn">Register</button>
-			</form>
+  return (
+    <div className="main_div">
+      <form
+        className="flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] md:min-w-[40%] min-w-[18rem]"
+        onSubmit={handleFormSubmit}
+      >
+        <label className="mb-4 mt-4">Register to Drive</label>
+        <label className="mb-4 mt-4">Your name</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="example: John Omolo"
+          className="rounded-lg p-2 mt-4"
+          value={formData.name}
+          onChange={handleInputChange}
+        />
+        <label className="mt-4">Your email</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="example: john369@gmail.com"
+          className="rounded-lg p-2 mt-4"
+          value={formData.email}
+          onChange={handleInputChange}
+        />
 
-			<Link href='/register'>
-				<button>Create an account with google</button>
-			</Link>
-			<p> already have an account?</p>
-			<Link href='/login'>
-				<p>Login</p>
-			</Link>
-			
-		
-		</div>
-		)
-}
-export default Register
+        <label className=" mt-4">Password</label>
+        <input
+          type="password"
+          name="password"
+          className="rounded-lg p-2 mt-4"
+          value={formData.password}
+          onChange={handleInputChange}
+        />
+        <label className=" mt-4">Confirm Password</label>
+        <input type="password" className="rounded-lg p-2 mt-4" />
+        <button className="main_btn" type="submit">
+          Register
+        </button>
+      </form>
+
+      <Link href="/register">
+        <button>Create an account with google</button>
+      </Link>
+      <p> already have an account?</p>
+      <Link href="/login">
+        <p>Login</p>
+      </Link>
+    </div>
+  );
+};
+
+export default Register;
