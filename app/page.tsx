@@ -4,8 +4,9 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+    <main className="min-h-screen  items-center justify-between p-24">
+      <div className="z-10 w-full max-w-5xl flex  flex-col items-center justify-between font-mono text-sm lg:flex">
+        <div>
         <Image 
           src='/assets/images/driver.jpg'
           alt='logo'
@@ -13,7 +14,24 @@ export default function Home() {
           height={500}
           className='object-contain'
           />
-        <h2>Welcome to Unicab</h2>
+    
+        <section>
+          <h2>safe way of earning</h2>
+          <h3> become a driver and start earning</h3>
+          <Link href='/drive'>
+          <button className='main_btn'>
+            Become a driver
+            </button>
+          </Link>
+        </section>
+      </div>
+        <section className="py-8">
+          <h2 className="text-2xl font-bold mb-4">About Us</h2>
+            <p>We strive to revolutionize transportation and connect people with seamless, reliable, and efficient rides. Our vision is to create a world where getting from point A to point B is not only convenient but also an enjoyable experience.</p>
+          <Link href='/about'>
+            <button className='main_btn'>learn more</button>
+          </Link>
+        </section>
         <h3>Earn money</h3>
         step1: create an account
         step 2: fill the drivers form

@@ -1,10 +1,10 @@
-
+import Link from 'next/link'
 
 const Drive = () => {
 	return (
 		<div className="main_div">
 		<div className="second_div flex-col">
-			<h1 className='font-bold text-2xl'>UniCab</h1>
+			
 
 			<h2 className='font-bold text-xl'>About Us</h2>
 
@@ -19,6 +19,10 @@ const Drive = () => {
 				<p>Our mission is to redefine urban transportation and make it accessible to all. We aim to provide safe, affordable, and sustainable rides that reduce traffic congestion and contribute positively to the environment. We continuously innovate and leverage cutting-edge technology to improve our services, ensuring that every journey with us is smooth and stress-free.</p>
 
 			<h3 className='font-bold text-lg'>What Sets Us Apart:</h3>
+			
+			<p>View our 
+				<Link href='/contact'> FAQs</Link>
+			</p>
 
 			<ul>
 
