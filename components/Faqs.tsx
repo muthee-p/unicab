@@ -12,16 +12,16 @@ interface FAQItem {
 const Faq = () => {
   const faqItems: FAQItem[] = [
     {
-    question: 'Question 1',
-    answer: 'Answer 1',
+    question: ' How do I request a ride using your service?',
+    answer: 'Requesting a ride with our service is simple and convenient. All you need to do is download our mobile app, create an account, and enter your pickup location and destination. The app will then display available drivers in your area, along with the estimated time of arrival and fare. Select your preferred ride option, confirm your request, and you\'re\ all set! You can track your driver in real-time and receive notifications throughout the journey.',
   },
   {
-    question: 'Question 2',
-    answer: 'Answer 2',
+    question: ' How are fares calculated for rides?',
+    answer: 'Fares are calculated based on several factors, including the distance of the trip, the duration, the time of day, and demand in the area. Our app uses GPS technology to calculate the most efficient route between your pickup and drop-off locations. The fare will be displayed before you confirm your ride request, so you\'ll\ always know the estimated cost upfront. Additionally, surge pricing may apply during periods of high demand, and you will be notified about any surge pricing before confirming your ride.',
   },
   {
-    question: 'Question 3',
-    answer: 'Answer 3',
+    question: 'How can I ensure my safety while using your service?',
+    answer: 'Your safety is our top priority. All drivers on our platform undergo a thorough background check and screening process before they are approved to drive. Our app provides you with the driver\'s\ photo, name, and license plate number, so you can easily identify your driver. Additionally, you can share your ride details with friends or family, allowing them to track your journey in real-time. We also offer an in-app emergency button to connect you directly to emergency services if needed. If you ever encounter any issues during your ride, please don\'t\ hesitate to contact our support team, and we\'ll\ assist you promptly.',
   },
 ];
 
@@ -38,7 +38,7 @@ const Faq = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className=" max-w-5xl md:max-w-3xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-4">Frequently Asked Questions</h1>
       <div>
         {faqItems.map((q, index) => (

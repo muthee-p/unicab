@@ -16,5 +16,24 @@ model User {
   name          String?
   email         String?   @unique
   password      String
+  Driver        Driver[]
+}
 
+model Driver {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phoneNumber String 
+  brand  String?
+  model  String?
+  year      Int
+  licensePlate  String?
+  color   String
+  nationalId   Int
+  driverLicense  String?
+  passportUpload  String?
+  idUpload    String?
+  licenseUpload  String?
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
 }
