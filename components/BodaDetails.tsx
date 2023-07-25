@@ -1,9 +1,9 @@
 const bodaBrands = ['Yamaha', 'Kawasaki', 'Boxer', 'Honda', 'Suzuki', 'Ranger', 'Shineray', 'Captain', 'Tiger', 'Dugati', 'BMW','Harley Davidson','Indiana','TVS','Kibo']; 
 
-const yamahaOptions = ['crux'];
+const yamahaOptions = ['crux', 'Yamaha'];
 const kawasakiOptions = ['Kawasaki'];
 const boxerOptions = ['Bajaj Boxer'];
-const hondaOptions = ['ace'];
+const hondaOptions = ['ace', 'Honda'];
 const suzukiOptions = ['suzuki']
 const rangerOptions = ['ranger']
 const shinerayOptions = ['Shineray']
@@ -25,9 +25,27 @@ type BodaDetailsProps = {
   handleSelectedModel: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   selectedColor: string;
   handleSelectedColor: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  formData: RegisterFormData; 
 };
+ // const [formData, setFormData] = useState<RegisterFormData>({
+ //  name: '',
+ //  email: '',
+ //  phoneNumber: '',
+ //  brand: '',
+ //  model: '',
+ //  year: '',
+ //  licensePlate: '',
+ //  color: '',
+ //  nationalId: '',
+ //  driverLicense: '',
+ //  passportUpload: '',
+ //  idUpload: '',
+ //  licenseUpload: '',
+ //  });
 
-const BodaDetails = ({ selectedBodaBrand, handleBodaBrand, selectedRide, handleSelectedRide, selectedColor, handleColorChange } : BodaDetailsProps) => (
+
+const BodaDetails = ({ formData, handleInputChange, selectedBodaBrand, handleBodaBrand, selectedRide, handleSelectedRide, selectedColor, handleColorChange, selectedModel, handleModel } : BodaDetailsProps) => (
+  
   <>
     <h3 className='mt-4 mb-4 text-xl'>Motocycle Details</h3>
             <label className=' mt-4'>Choose Motocycle brand</label>
@@ -42,7 +60,10 @@ const BodaDetails = ({ selectedBodaBrand, handleBodaBrand, selectedRide, handleS
             {selectedBodaBrand === 'Yamaha' && (
               <div className='flex flex-col'>
                 <label htmlFor="yamaha">Select model:</label>
-                <select id="yamaha" value={selectedRide} onChange={handleSelectedRide}
+                <select id="yamaha" 
+                  name='model'
+                  value={selectedModel} 
+                  onChange={handleModel}
                   className= 'text-gray-500 rounded-lg p-2 mt-4'>
                   <option value="">-- Select Model --</option>
                   {yamahaOptions.map((option) => (
@@ -52,7 +73,8 @@ const BodaDetails = ({ selectedBodaBrand, handleBodaBrand, selectedRide, handleS
 
 
                 <label className=' mt-4'>Year of manufacture</label>
-              <input 
+              <input
+                name='year' 
                 value={formData.year}
                 onChange={handleInputChange}
                 type="number" placeholder="YYYY" min="1900" max="2099"
@@ -61,6 +83,7 @@ const BodaDetails = ({ selectedBodaBrand, handleBodaBrand, selectedRide, handleS
 
             <label className=' mt-4'>License plate</label>
              <input 
+             name='licensePlate'
               value={formData.licensePlate}
               onChange={handleInputChange}
              type='text' placeholder='example: KCC 000P'
@@ -78,7 +101,7 @@ const BodaDetails = ({ selectedBodaBrand, handleBodaBrand, selectedRide, handleS
               </select>
               </div>
             )}
-            {/* Add similar logic for other Boda brands and their corresponding options */}
+            
           </>
 );
 

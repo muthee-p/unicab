@@ -22,37 +22,40 @@ type RegisterFormData = {
   passportUpload: string;
   idUpload: string;
   licenseUpload: string;
-
+  userId: string;
 };
 
 const DriverForm = () => {
 
     const router = useRouter();
-  const [formData, setFormData] = useState<RegisterFormData>({
-    name: '',
-  email: '',
-  phoneNumber: '',
-  brand: '',
-  model: '',
-  year: '',
-  licensePlate: '',
-  color: '',
-  nationalId: '',
-  driverLicense: '',
-  passportUpload: '',
-  idUpload: '',
-  licenseUpload: '',
-  });
+    const [formData, setFormData] = useState<RegisterFormData>({
+      name: '',
+      email: '',
+      phoneNumber: '',
+      brand: '',
+      model: '',
+      year: 0,
+      licensePlate: '',
+      color: '',
+      nationalId: 0,
+      driverLicense: '',
+      passportUpload: '',
+      idUpload: '',
+      licenseUpload: '',
+      userId:''
+    });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: name==='year'? Number(value) : value }));
   };
 
  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
+      console.log(formData);
+
       const response = await fetch('/api/driver', {
         method: 'POST',
         headers: {
@@ -74,13 +77,11 @@ const DriverForm = () => {
 
 
 
-
-
   const [ride, setRide] = useState('');
   const [selectedRide, setSelectedRide] = useState('');
   const [selectedCarBrand, setSelectedCarBrand] = useState('');
   const [selectedBodaBrand, setSelectedBodaBrand] = useState('');
-  //const [selectedModel, setSelectedModel] = useState('');
+  const [selectedModel, setSelectedModel] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [section, setSection] = useState(1);
   
@@ -92,9 +93,9 @@ const DriverForm = () => {
   };
   
   const handleSelectedRide = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedModel= event.target.value;
-    setSelectedRide(selectedModel);
-    setFormData((prevFormData) => ({ ...prevFormData, model: selectedModel }));
+    const selectedRideModel= event.target.value;
+    setSelectedRide(selectedRideModel);
+    setFormData((prevFormData) => ({ ...prevFormData, model: selectedRideModel }));
 
   };
   
@@ -115,12 +116,10 @@ const DriverForm = () => {
     setSelectedColor(event.target.value);
     setFormData((prevFormData) => ({ ...prevFormData, color: event.target.value }));
   };
-  // const handleModel = (event: React.ChangeEvent<HTMLSelectElement>) => {
-  //    const selectedBrand = event.target.value;
-  //   setSelectedCarBrand(selectedBrand);
-
-  //   setFormData((prevFormData) => ({ ...prevFormData, model: selectedModel }));
-  // };
+  const handleModel = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedModel(event.target.value);
+    setFormData((prevFormData) => ({ ...prevFormData, model: event.target.value }));
+  };
   
   const handlePassportUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
   const file = event.target.files && event.target.files[0];
@@ -202,11 +201,13 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
           				<CarDetails
             				selectedCarBrand={selectedCarBrand}
             				handleCarBrand={handleCarBrand}
-            				
+            				formData={formData}
                     selectedRide={selectedRide}
                     handleRide={handleRide}
                     selectedColor={selectedColor}
                     handleColorChange={handleColorChange}
+                    selectedModel={selectedModel}
+                    handleModel={handleModel}
           				/>
            			</div>
         		)}
@@ -216,11 +217,14 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
           		  		<BodaDetails
             				selectedBodaBrand={selectedBodaBrand}
             				handleBodaBrand={handleBodaBrand}
-            				
-                     selectedRide={selectedRide}
+            				formData={formData}
+                    selectedRide={selectedRide}
+                    handleInputChange={handleInputChange}
                     handleRide={handleRide}
                     selectedColor={selectedColor}
                     handleColorChange={handleColorChange}
+                    selectedModel={selectedModel}
+                    handleModel={handleModel}
           				/>
           			</div>
         		)}
@@ -232,12 +236,14 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         		<label className=' mt-4'>Legal Details</label>
         			<label className=' mt-4'>Your National ID Number</label>
         				<input 
+                name='nationalId'
                   value={formData.nationalId}
                   onChange={handleInputChange}
                   type='number' placeholder='e.g. 009089'
         					className='rounded-lg p-2 mt-4' />
         			<label className=' mt-4'>Your Driver's License</label>
         				<input 
+                  name='driverLicense'
                   value={formData.driverLicense}
                   onChange={handleInputChange}
                   type='number' placeholder='e.g. 345678'
@@ -250,24 +256,39 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
           <div className='flex flex-col'>
             <label className=' mt-4 text-xl'>Uploads</label>
              <label className=' mt-4'>Upload your passport photo</label>
-                <input 
+                <input
+                  name='passportUpload'
                   value={formData.passportUpload}
                   onChange={handleInputChange}
-                  type='number' placeholder='e.g. 009089'
+                  type='text' placeholder='e.g. 009089'
                   className='rounded-lg p-2 mt-4' />
               <label className=' mt-4'>Upload your ID (front)</label>
                 <input 
+                  name='idUpload'
                   value={formData.idUpload}
                   onChange={handleInputChange}
-                  type='number' placeholder='e.g. 345678'
+                  type='text' placeholder='e.g. 345678'
                   className='rounded-lg p-2 mt-4' />
               <label className=' mt-4'>Upload your Driver's License</label>
                 <input 
+                  name='licenseUpload'
                   value={formData.licenseUpload}
                   onChange={handleInputChange}
-                  type='number' placeholder='e.g. 345678'
+                  type='text' placeholder='e.g. 345678'
                   className='rounded-lg p-2 mt-4' />
+
+               <label className=' mt-4'>User</label>
+                <input 
+                  name='userId'
+                  value={formData.userId}
+                  onChange={handleInputChange}
+                  type='text' placeholder='e.g. 345678'
+                  className='rounded-lg p-2 mt-4' />
+              <button type='submit' 
+              className='rounded-full bg-blue-500 mt-8 p-1 w-full'> Finish</button>
+      
           </div>
+
         	// <div className='flex flex-col w-[17rem]'>
         	// 	<label className=' mt-4 text-xl'>Uploads</label>
         	// 		<label className=' mt-4'>Upload your passport photo</label>
@@ -289,7 +310,7 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         	// </div>
 
     	}
-    	{section < 4 && (
+      {section < 4 && (
           <button type="button" 
           onClick={handleSection}
           className='rounded-full bg-blue-500 mt-8 p-1'

@@ -24,16 +24,16 @@ model Driver {
   name      String
   email     String
   phoneNumber String 
-  brand  String?
-  model  String?
-  year      Int
-  licensePlate  String?
+  brand  String
+  model  String
+  year      String
+  licensePlate  String
   color   String
-  nationalId   Int
-  driverLicense  String?
-  passportUpload  String?
-  idUpload    String?
-  licenseUpload  String?
+  nationalId   String
+  driverLicense  String
+  passportUpload  String
+  idUpload    String
+  licenseUpload  String
   userId        String
   user          User     @relation(fields: [userId], references: [id])
 }
