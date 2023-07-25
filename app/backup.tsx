@@ -1,7 +1,7 @@
 'use client'
 
-import { verifyJwt } from "@lib/jwt";
-import { useState, useEffect } from 'react';
+
+import { useState } from 'react';
 import { useRouter } from 'next/navigation'
 import CarDetails from '@components/CarDetails';
 import BodaDetails from '@components/BodaDetails';
@@ -27,7 +27,7 @@ type RegisterFormData = {
 };
 
 const DriverForm = () => {
-    const [userId, setUserId] = useState<number | null>(null);
+
     const router = useRouter();
     const [formData, setFormData] = useState<RegisterFormData>({
       name: '',
@@ -45,20 +45,6 @@ const DriverForm = () => {
       licenseUpload: '',
       userId:''
     });
-
-useEffect(() => {
-    // Function to retrieve and verify the access token from localStorage or wherever you are storing it
-    const getAndVerifyAccessToken = () => {
-      const accessToken = localStorage.getItem("accessToken"); // Retrieve the access token
-      if (accessToken) {
-        const decodedToken = verifyJwt(accessToken); // Verify the token
-        if (decodedToken) {
-          setUserId(decodedToken.userId); // Set the user ID from the token payload
-        }
-      }
-    };
-    getAndVerifyAccessToken();
-  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -292,7 +278,13 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
                   type='text' placeholder='e.g. 345678'
                   className='rounded-lg p-2 mt-4' />
 
-               
+               <label className=' mt-4'>User</label>
+                <input 
+                  name='userId'
+                  value={formData.userId}
+                  onChange={handleInputChange}
+                  type='text' placeholder='e.g. 345678'
+                  className='rounded-lg p-2 mt-4' />
               <button type='submit' 
               className='rounded-full bg-blue-500 mt-8 p-1 w-full'> Finish</button>
       
