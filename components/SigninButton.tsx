@@ -4,7 +4,7 @@ import React from "react";
 
 const SigninButton = () => {
   const { data: session } = useSession();
-  console.log(session?.user);
+  console.log('logged in user is', session?.user.name);
 
   if (session && session.user) {
     return (

@@ -1,4 +1,4 @@
-import Link from 'nest/link'
+import Link from 'next/link'
 
 const Dashboard = () => {
 	return (
@@ -7,7 +7,7 @@ const Dashboard = () => {
 		<Link href='/driverForm'>
 			<p>Add a driver/vehicle</p>
 		</Link>
-		<p>Your Earnings<p>
+		<p>Your Earnings</p>
 		<p> Your Rides </p>
 		<p>My vehicles</p>
 		</div>

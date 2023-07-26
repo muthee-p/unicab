@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {signIn } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
-//import { useRouter } from 'next/navigation'
 import GoogleSigninButton from "@components/GoogleSigninButton";
 
 const Login = () => {
@@ -23,35 +22,6 @@ const Login = () => {
       callbackUrl,
     })
   }
-	// const router = useRouter();
-
-  // const email = useRef("");
-  // const password = useRef("");
-
-  // const onSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const response = await fetch("/api/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       email: email.current,
-  //       password: password.current,
-  //     }),
-  //   });
-
-  //   if (response.ok) {
-  //     const user = await response.json();
-  //     console.log("Logged in user:", user);
-  //     router.push('/')
-      
-  //   } else {
-  //     console.error("Login failed");
-      
-  //   }
-  // };
 
   return (
     <div className="main_div">
