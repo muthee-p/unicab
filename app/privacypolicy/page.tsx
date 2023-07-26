@@ -1,6 +1,6 @@
 const PrivacyPolicy = () =>{
 	return(
-	<div>
+	<div className="main_div">
 		**Privacy Policy for [Your App Name]**
 
 Effective Date: [Date]

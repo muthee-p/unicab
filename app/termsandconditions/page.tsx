@@ -1,6 +1,6 @@
 const TermsAndConditions = () =>{
 	return(
-	<div>
+	<div className="main_div">
 		**Terms and Conditions for Driver Sign-Up**
 
 Welcome to UniCab website, an on-demand transportation service connecting riders with drivers. These Terms and Conditions govern your use of the App as a driver. By signing up and using our platform, you agree to adhere to these terms and conditions. Please read them carefully.
