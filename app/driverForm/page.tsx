@@ -1,6 +1,6 @@
 'use client'
 
-
+import Link from 'next/link';
 import { useState } from 'react';
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
@@ -282,9 +282,24 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
                   className='rounded-lg text-gray-700 p-2 mt-4' />
 
                <button type='submit' 
-              className='rounded-full bg-blue-500 mt-8 p-1 w-full'> Finish</button>
+              className='rounded-full bg-blue-500 mt-8 p-1 w-full'> Submit </button>
+       <div className= 'flex justify-between mt-8'>
       
-          </div>
+       {section > 1 && (
+          <button type="button" 
+          onClick={handlePrevSection}
+          className='rounded-full w-32 bg-gray-500 hover:bg-gray-600 p-1'
+          >Back</button>
+        )}
+       {section < 4 && (
+          <button type="button" 
+          onClick={handleSection}
+          className='rounded-full w-32 bg-blue-500  p-1'
+          >Next</button>
+        )}
+       </div>
+        <p>By tapping «Submit» I agree with <Link href='/termsandconditions'>Terms and Conditions,</Link> I acknowledge and agree with processing and transfer of personal data according to conditions of <Link href='/privacypolicy'>Privacy Policy</Link></p>
+        </div>
 
           // <div className='flex flex-col w-[17rem]'>
           //  <label className=' mt-4 text-xl'>Uploads</label>
@@ -307,21 +322,7 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
           // </div>
 
       }
-      <div className= 'flex justify-between mt-8'>
-      
-       {section > 1 && (
-          <button type="button" 
-          onClick={handlePrevSection}
-          className='rounded-full w-32 bg-gray-500 hover:bg-gray-600 p-1'
-          >Back</button>
-        )}
-       {section < 4 && (
-          <button type="button" 
-          onClick={handleSection}
-          className='rounded-full w-32 bg-blue-500  p-1'
-          >Next</button>
-        )}
-       </div>
+     
         
       </form>
     </div>
