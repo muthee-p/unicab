@@ -9,7 +9,7 @@ interface RequestBody {
   year: number;
   licensePlate: string;
   color: string;
-  nationalId: number;
+  nationalId: string;
   driverLicense: string;
   passportUpload: string;
   idUpload: string;

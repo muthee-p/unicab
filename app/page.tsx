@@ -4,26 +4,33 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen  items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl flex  flex-col items-center justify-between font-mono text-sm lg:flex">
-        <div>
-        <Image 
-          src='/assets/images/driver.jpg'
-          alt='logo'
-          width={500}
-          height={500}
-          className='object-contain'
-          />
-    
-        <section>
-          <h2>safe way of earning</h2>
-          <h3> become a driver and start earning</h3>
+    <main className="min-h-screen  items-center justify-between px-4 sm:px-6 lg:px-32 pt-36">
+      <div className="z-10 w-full max-w-5xl flex  flex-col items-center justify-between text-sm lg:flex">
+        <div className='flex flex-col md:flex-row justify-between px-6 md:py-8'>
+        
+        <div className='flex md:mr-12 pl-8 items-center'>
+          <div>
+          <h2 className='font-bold text-5xl leading-tight'>
+            Ride with Confidence,</h2>
+            <h2 className='font-bold text-5xl leading-tight'>Earn With Comfort.</h2>
+          <h3 className='text-xl text-gray-400 mt-4'>
+            Driving Towards a Smoother Tomorrow.</h3>
           <Link href='/drive'>
           <button className='main_btn'>
             Become a driver
             </button>
           </Link>
-        </section>
+          </div>
+        </div>
+
+        <Image 
+          src='/assets/images/driver.jpg'
+          alt='logo'
+          width={600}
+          height={600}
+          className='object-contain'
+          />
+        
       </div>
         <section className="py-8">
           <h2 className="text-2xl font-bold mb-4">About Us</h2>

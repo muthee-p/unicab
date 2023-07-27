@@ -136,9 +136,6 @@ const Register = () => {
       )}
     </Formik>
 
-    <Link href="/register">
-      <button>Create an account with google</button>
-    </Link>
     <p> already have an account?</p>
     <Link href="/login">
       <p>Login</p>
