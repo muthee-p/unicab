@@ -16,10 +16,10 @@ type RegisterFormData = {
   phoneNumber: string;
   brand: string;
   model: string;
-  year: number;
+  year: number | null;
   licensePlate: string;
   color: string;
-  nationalId: number;
+  nationalId: string;
   driverLicense: string;
   passportUpload: string;
   idUpload: string;
