@@ -14,7 +14,7 @@ export async function GET(request: Request, { params }: { params: { id: number }
     );
   }
   const driver = await prisma.driver.findMany({
-    where: { userId: +params.id },
+    where: { userId: params.id },
     include: {
       user: {
         select: {
