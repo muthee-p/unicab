@@ -24,7 +24,7 @@ type RegisterFormData = {
   passportUpload: string;
   idUpload: string;
   licenseUpload: string;
-  userId: string;
+  userId: string | null = null;
 };
 
 const DriverForm = () => {
