@@ -67,7 +67,7 @@ type BodaDetailsProps = {
   selectedModel: string;
   handleSelectedModel: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   selectedColor: string;
-  handleSelectedColor: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleColorChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   formData: RegisterFormData; 
 };
