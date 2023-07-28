@@ -55,7 +55,7 @@ type CarDetailsProps = {
   selectedCarBrand: string;
   handleCarBrand: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   selectedModel: string;
-  handleSelectedModel: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleModel: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   selectedColor: string;
   handleColorChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
