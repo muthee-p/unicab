@@ -46,7 +46,7 @@ const DriverForm = () => {
       passportUpload: '',
       idUpload: '',
       licenseUpload: '',
-      userId: currentUserId
+      userId: currentUserId || null
     });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
