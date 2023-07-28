@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const SigninButton = () => {
   const { data: session } = useSession();
-  console.log('logged in user is', session?.user.name);
+  console.log('logged in user is', session?.user);
 
   if (session && session.user) {
     return (
