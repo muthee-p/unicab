@@ -27,9 +27,9 @@ const Faq = () => {
 
 
 
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const handleClick = (index) => {
+  const handleClick = (index: number) => {
     if (activeIndex === index) {
       setActiveIndex(null);
     } else {
