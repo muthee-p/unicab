@@ -11,22 +11,6 @@ import { RegisterFormData } from '@lib/types/RegisterFormData'
 const rideOptions = ['car', 'bodaboda'];
 const colors = ['red', 'orange', 'gray', 'black', 'blue', 'green','pink', 'purple']
 
-// type RegisterFormData = {
-//   name: string;
-//   email: string;
-//   phoneNumber: string;
-//   brand: string;
-//   model: string;
-//   year: number | null;
-//   licensePlate: string;
-//   color: string;
-//   nationalId: string;
-//   driverLicense: string;
-//   passportUpload: string;
-//   idUpload: string;
-//   licenseUpload: string;
-//   userId: string | null;
-// };
 
 const DriverForm = () => {
 

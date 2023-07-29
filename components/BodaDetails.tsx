@@ -71,6 +71,7 @@ type BodaDetailsProps = {
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   formData: RegisterFormData; 
 };
+const yearValue: string = formData.year !== null ? formData.year.toString() : '';
 
 const BodaDetails = ({ formData, handleInputChange, selectedBodaBrand, handleBodaBrand, selectedColor, handleColorChange, selectedModel, handleModel } : BodaDetailsProps) => (
   
@@ -144,7 +145,7 @@ const BodaDetails = ({ formData, handleInputChange, selectedBodaBrand, handleBod
                 <label className=' mt-4'>Year of manufacture</label>
               <input
                 name='year' 
-                value={formData.year}
+                value={yearValue}
                 onChange={handleInputChange}
                 type="number" placeholder="YYYY" min="1900" max="2099"
                 className= 'text-gray-700 rounded-lg p-2 mt-4' />
