@@ -120,7 +120,7 @@ const BodaDetails = ({ formData, handleInputChange, selectedBodaBrand, handleBod
             className='text-gray-500  rounded-lg p-2 mt-4'
           >
             <option value="">-- Select Model --</option>
-            {brandOptionsMap[selectedBodaBrand]?.models.map((option) => (
+            {brandOptionsMap[selectedBodaBrand as keyof typeof brandOptionsMap]?.models.map((option) => (
               <option key={option} value={option}>{option}</option>
             ))}
             <option value="Other">Other</option>

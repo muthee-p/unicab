@@ -108,7 +108,7 @@ const CarDetails = ({ selectedCarBrand, handleCarBrand, formData, handleInputCha
             className='text-gray-500  rounded-lg p-2 mt-4'
           >
             <option value="">-- Select Model --</option>
-            {brandOptionsMap[selectedCarBrand]?.models.map((option) => (
+            {brandOptionsMap[selectedCarBrand as keyof typeof brandOptionsMap]?.models.map((option) => (
               <option key={option} value={option}>{option}</option>
             ))}
             <option value="Other">Other</option>
