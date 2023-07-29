@@ -42,7 +42,7 @@ const Register = () => {
 
   //const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     //e.preventDefault();
-  const handleFormSubmit = async (values, { setSubmitting }) => {
+  const handleFormSubmit = async (values: FormikValues, { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void}) => {
 
     try {
       const response = await fetch('/api/user', {
