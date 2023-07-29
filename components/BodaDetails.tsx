@@ -69,11 +69,11 @@ type BodaDetailsProps = {
   selectedColor: string;
   handleColorChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  formData: RegisterFormData; 
+  formData: RegisterFormData;
+  yearValue: number; 
 };
-const yearValue: string = formData.year !== null ? formData.year.toString() : '';
 
-const BodaDetails = ({ formData, handleInputChange, selectedBodaBrand, handleBodaBrand, selectedColor, handleColorChange, selectedModel, handleModel } : BodaDetailsProps) => (
+const BodaDetails = ({ formData, yearValue, handleInputChange, selectedBodaBrand, handleBodaBrand, selectedColor, handleColorChange, selectedModel, handleModel } : BodaDetailsProps) => (
   
   <>
        <h3 className='mt-4 mb-4 text-xl'>Motocycle Details</h3>

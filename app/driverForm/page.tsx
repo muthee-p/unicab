@@ -33,6 +33,7 @@ const DriverForm = () => {
       licenseUpload: '',
       userId: currentUserId || null
     });
+const yearValue: string = formData.year !== null ? formData.year.toString() : '';
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -199,6 +200,7 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
                     handleColorChange={handleColorChange}
                     selectedModel={selectedModel}
                     handleModel={handleModel}
+                    yearValue={yearValue}
                   />
                 </div>
             )}
@@ -214,6 +216,7 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
                     handleColorChange={handleColorChange}
                     selectedModel={selectedModel}
                     handleModel={handleModel}
+                    yearValue={yearValue}
                   />
                 </div>
             )}

@@ -62,9 +62,10 @@ type CarDetailsProps = {
   handleColorChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   formData: RegisterFormData; 
+  yearValue: string; 
 };
 
-const CarDetails = ({ selectedCarBrand, handleCarBrand, formData, handleInputChange, selectedColor, handleColorChange, selectedModel, handleModel }: CarDetailsProps ) => (
+const CarDetails = ({ yearValue, selectedCarBrand, handleCarBrand, formData, handleInputChange, selectedColor, handleColorChange, selectedModel, handleModel }: CarDetailsProps ) => (
   <>
     <h3 className='mt-4 mb-4 text-xl'>Vehicle Details</h3>
           <div className='flex flex-col'>
@@ -130,7 +131,7 @@ const CarDetails = ({ selectedCarBrand, handleCarBrand, formData, handleInputCha
                 <label className=' mt-4'>Vehicle year</label>
               <input
                 name='year' 
-                value={formData.year}
+                value={yearValue}
                 onChange={handleInputChange}
                 type="number" placeholder="YYYY" min="1900" max="2099"
                 className= 'text-gray-700 rounded-lg p-2 mt-4' />
