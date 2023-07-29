@@ -69,7 +69,7 @@ type BodaDetailsProps = {
   selectedColor: string;
   handleColorChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  formData: formData; 
+  formData: FormData; 
 };
 
 const BodaDetails = ({ formData, handleInputChange, selectedBodaBrand, handleBodaBrand, selectedColor, handleColorChange, selectedModel, handleModel } : BodaDetailsProps) => (
