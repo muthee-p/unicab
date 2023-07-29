@@ -1,4 +1,4 @@
-import { RegisterFormData } from '@types/RegisterFormData'
+import { RegisterFormData } from '@lib/types/RegisterFormData'
 
 const carBrands = [ 'Toyota', 'Mazda', 'Mitsubishi','Suzuki', 'Peugeot', 'Volkswagen', 'Volvo','Honda', 'Hyundai', 'Nissan', 'Subaru'];
 

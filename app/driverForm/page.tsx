@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import CarDetails from '@components/CarDetails';
 import BodaDetails from '@components/BodaDetails';
-import { RegisterFormData } from '@types/RegisterFormData'
+import { RegisterFormData } from '@lib/types/RegisterFormData'
 
 const rideOptions = ['car', 'bodaboda'];
 const colors = ['red', 'orange', 'gray', 'black', 'blue', 'green','pink', 'purple']

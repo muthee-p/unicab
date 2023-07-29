@@ -1,4 +1,4 @@
-import { RegisterFormData } from '@types/RegisterFormData'
+import { RegisterFormData } from '@lib/types/RegisterFormData'
 
 const bodaBrands = ['Yamaha', 'Kawasaki', 'Boxer', 'Honda', 'Suzuki', 'Ranger', 'Shineray', 'Captain', 'Tiger', 'Dugati', 'BMW','TVS','Kibo']; 
 
