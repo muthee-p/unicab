@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from "react";
+import { Formik, FormikValues, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import Link from "next/link";
 import {signIn } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
@@ -14,49 +16,88 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    signIn('credentials', {
-      email,
-      password,
-      callbackUrl,
-    })
-  }
+  const validationSchema = Yup.object({
+    email: Yup.string().email('Invalid email address').required('Email is required'),
+    password: Yup.string().required('Password is required'),
+  });
+
+  const onSubmit = async (values: FormikValues, { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void}) => {
+
+  //const onSubmit = async (values, { setSubmitting }) => {
+    try {
+      await signIn('credentials', {
+        email: values.email,
+        password: values.password,
+        callbackUrl, // Make sure you define `callbackUrl` somewhere in your component
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+  
+  
+  // const onSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   signIn('credentials', {
+  //     email,
+  //     password,
+  //     callbackUrl,
+  //   })
+  // }
 
   return (
     <div className="main_div">
       Welcome to drive
-      <form onSubmit={onSubmit}
-      className="flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] md:min-w-[40%] min-w-[18rem]">
-        <label className="mb-4 mt-4">Personal details</label>
-
-        <label className="mt-4">Your email</label>
-        <input
-        value={email}
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="example: john369@gmail.com"
-          className="rounded-lg text-gray-700 p-2 mt-4"
-        />
-        <label className=" mt-4">Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="rounded-lg text-gray-700 p-2 mt-4"
-        />
-        <button className="main_btn" onClick={onSubmit}>
-          Login
-        </button>
-      </form>
-
-     
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {({ isSubmitting }) => (
+          <Form
+            className="flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] md:min-w-[40%] min-w-[18rem]"
+          >
+            <label className="mb-4 mt-4">Personal details</label>
+            <label className="mt-4">Your email</label>
+            <Field
+              type="email"
+              name="email"
+              placeholder="example: john369@gmail.com"
+              className="rounded-lg text-gray-700 p-2 mt-4"
+            />
+            <ErrorMessage name="email" component="div" className="text-red-500" />
+  
+            <label className=" mt-4">Password</label>
+            <Field
+              type="password"
+              name="password"
+              className="rounded-lg text-gray-700 p-2 mt-4"
+            />
+            <ErrorMessage name="password" component="div" className="text-red-500" />
+  
+            <button
+              className="main_btn"
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Logging in...' : 'Login'}
+            </button>
+          </Form>
+        )}
+      </Formik>
+  
       <p>Don't have an account?</p>
       <Link href="/register">
         <p>Register</p>
       </Link>
     </div>
   );
+  
 };
 
 export default Login;

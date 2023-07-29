@@ -20,8 +20,20 @@ const Faq = () => {
     answer: 'Fares are calculated based on several factors, including the distance of the trip, the duration, the time of day, and demand in the area. Our app uses GPS technology to calculate the most efficient route between your pickup and drop-off locations. The fare will be displayed before you confirm your ride request, so you\'ll\ always know the estimated cost upfront. Additionally, surge pricing may apply during periods of high demand, and you will be notified about any surge pricing before confirming your ride.',
   },
   {
-    question: 'How can I ensure my safety while using your service?',
+    question: 'What safety measures are in place for drivers and riders?',
+    answer: 'We prioritize safety for all users. We conduct comprehensive background checks on drivers and provide a rating system for both drivers and riders. Additionally, we have an in-app emergency button and customer support team available 24/7.',
+  },
+  {
+    question: 'How do I sign up as a driver on Unicab?',
+    answer: ' Signing up as a driver is easy! Simply download the app, click on the "Driver Sign-Up" button, and follow the step-by-step registration process. You\'\ll need to provide some personal information, vehicle details, and complete a background check.',
+  },
+  {
+    question: 'Can I use UniCab in different cities or countries?',
     answer: 'Your safety is our top priority. All drivers on our platform undergo a thorough background check and screening process before they are approved to drive. Our app provides you with the driver\'s\ photo, name, and license plate number, so you can easily identify your driver. Additionally, you can share your ride details with friends or family, allowing them to track your journey in real-time. We also offer an in-app emergency button to connect you directly to emergency services if needed. If you ever encounter any issues during your ride, please don\'t\ hesitate to contact our support team, and we\'ll\ assist you promptly.',
+  },
+  {
+    question: 'Can I choose my working hours as a driver?',
+    answer: 'Yes! As a driver, you have the flexibility to choose your own working hours. You can go online or offline whenever it suits you best.',
   },
 ];
 
@@ -38,13 +50,13 @@ const Faq = () => {
   };
 
   return (
-    <div className=" max-w-5xl md:max-w-3xl mx-auto px-4 py-8">
+    <div className=" max-w-5xl md:max-w-4xl md:w-[40rem] mx-auto md:px-4 py-8">
       <h1 className="text-2xl font-bold mb-4">Frequently Asked Questions</h1>
-      <div>
+      <div className=''>
         {faqItems.map((q, index) => (
           <div key={index} className="mb-4">
             <button
-              className="flex justify-between items-center w-full p-4 bg-gray-100 rounded-md focus:outline-none"
+              className="flex justify-between items-center w-full md:p-4 bg-gray-100 rounded-md focus:outline-none"
               onClick={() => handleClick(index)}
             >
               <span>{q.question}</span>

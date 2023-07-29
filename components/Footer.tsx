@@ -19,10 +19,11 @@ const Footer = () => {
 			<Link href="/drive">Drive</Link>
 			<Link href="/ride">Get a Ride</Link>
 			<Link href="/about">About Us</Link>
-			<Link href="/contact">Contact Us</Link>
+			
 		</div>
 		<div className='flex flex-col'>
-		  	<h5 className='font-bold'>Plocies</h5>
+		  	<h5 className='font-bold'>Resources</h5>
+			<Link href="/contact">Contact Us</Link>
 			<Link href="/privacypolicy">Privacy Policy</Link>
 			<Link href="/termsandcondtions">Terms of Service</Link>
 		</div>

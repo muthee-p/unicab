@@ -32,10 +32,13 @@ body {
   @apply rounded-full bg-blue-500 py-1.5 px-5 mt-8 mb-4 text-white transition-all hover:bg-gray-400 hover:text-gray-800 text-center text-sm flex items-center justify-center;
 }
 .main_div{
-  @apply flex min-h-screen flex-col items-center justify-between p-24 ;
+  @apply flex min-h-screen flex-col items-center justify-between md:p-24 ;
 }
 .second_div{
   @apply z-10 w-full max-w-5xl items-center justify-between text-sm lg:flex;
+}
+.sm_column{
+  @apply flex flex-col md:flex-row;
 }
 
 
@@ -56,3 +59,5 @@ body {
     .underline-from-left:hover::before {
       width: 100%;
     }
+
+

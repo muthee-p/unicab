@@ -9,19 +9,19 @@ const SigninButton = () => {
 
   if (session && session.user) {
     return (
-      <div className="flex flex-col md:flex-row gap-4 ml-auto items-center">
+      <div className="flex flex-col md:flex-row gap-4 ml-auto md:items-center md:pt-4 pb-5 px-5 text-sm">
         <Link href="/dashboard"
-             className="text-gray-600 md:underline-from-left md:px-3 md:py-2 rounded-md text-sm font-medium">Dashboard
+             className=" text-gray-700 md:text-gray-600 md:underline-from-left md:px-3 md:py-2 md:mr-10 rounded-md md:text-sm font-medium">Dashboard
         </Link>
-        <p className="text-sky-600 hidden md:block">Mambo, {session.user.name}</p>
-        <button onClick={() => signOut()} className="bg-gray-200 text-gray-700 p-1 w-24 rounded-full hover:bg-gray-400">
+        <p className="text-sky-600 font-medium hidden md:block">Mambo, {session.user.name}</p>
+        <button onClick={() => signOut()} className="bg-gray-200 text-gray-700 p-1 px-2 md:w-24 rounded-full font-medium hover:bg-gray-700 hover:text-gray-200">
           Sign Out
         </button>
       </div>
     );
   }
   return (
-    <button onClick={() => signIn()} className="text-green-600 ml-auto">
+    <button onClick={() => signIn()} className="main_btn ml-auto pb-5 px-5">
       Sign In
     </button>
   );
