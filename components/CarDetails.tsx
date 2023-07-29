@@ -1,3 +1,5 @@
+import { RegisterFormData } from '@types/RegisterFormData'
+
 const carBrands = [ 'Toyota', 'Mazda', 'Mitsubishi','Suzuki', 'Peugeot', 'Volkswagen', 'Volvo','Honda', 'Hyundai', 'Nissan', 'Subaru'];
 
 const suzukiOptions = ['Alto', 'Celerio', 'Swift','Ignis', 'Baleno', 'Dzire','Ciaz', 'Brezza', 'S-Cross'];
@@ -59,7 +61,7 @@ type CarDetailsProps = {
   selectedColor: string;
   handleColorChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  formData: formData; 
+  formData: RegisterFormData; 
 };
 
 const CarDetails = ({ selectedCarBrand, handleCarBrand, formData, handleInputChange, selectedColor, handleColorChange, selectedModel, handleModel }: CarDetailsProps ) => (

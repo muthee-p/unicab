@@ -1,4 +1,4 @@
-
+import { RegisterFormData } from '@types/RegisterFormData'
 
 const bodaBrands = ['Yamaha', 'Kawasaki', 'Boxer', 'Honda', 'Suzuki', 'Ranger', 'Shineray', 'Captain', 'Tiger', 'Dugati', 'BMW','TVS','Kibo']; 
 
@@ -69,7 +69,7 @@ type BodaDetailsProps = {
   selectedColor: string;
   handleColorChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  formData: FormData; 
+  formData: RegisterFormData; 
 };
 
 const BodaDetails = ({ formData, handleInputChange, selectedBodaBrand, handleBodaBrand, selectedColor, handleColorChange, selectedModel, handleModel } : BodaDetailsProps) => (

@@ -6,26 +6,27 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import CarDetails from '@components/CarDetails';
 import BodaDetails from '@components/BodaDetails';
+import { RegisterFormData } from '@types/RegisterFormData'
 
 const rideOptions = ['car', 'bodaboda'];
 const colors = ['red', 'orange', 'gray', 'black', 'blue', 'green','pink', 'purple']
 
-type RegisterFormData = {
-  name: string;
-  email: string;
-  phoneNumber: string;
-  brand: string;
-  model: string;
-  year: number | null;
-  licensePlate: string;
-  color: string;
-  nationalId: string;
-  driverLicense: string;
-  passportUpload: string;
-  idUpload: string;
-  licenseUpload: string;
-  userId: string | null;
-};
+// type RegisterFormData = {
+//   name: string;
+//   email: string;
+//   phoneNumber: string;
+//   brand: string;
+//   model: string;
+//   year: number | null;
+//   licensePlate: string;
+//   color: string;
+//   nationalId: string;
+//   driverLicense: string;
+//   passportUpload: string;
+//   idUpload: string;
+//   licenseUpload: string;
+//   userId: string | null;
+// };
 
 const DriverForm = () => {
 
