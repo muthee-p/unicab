@@ -50,7 +50,7 @@ const Faq = () => {
   };
 
   return (
-    <div className=" max-w-5xl md:max-w-4xl md:w-[40rem] mx-auto md:px-4 py-8">
+    <div className=" max-w-5xl md:max-w-4xl md:w-[40rem] mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-4">Frequently Asked Questions</h1>
       <div className=''>
         {faqItems.map((q, index) => (

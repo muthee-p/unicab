@@ -9,9 +9,6 @@ const Drive = () => {
 			<h2 className='font-bold text-xl'>About Us</h2>
 
 				<p>Welcome to UniCab, where we strive to revolutionize transportation and connect people with seamless, reliable, and efficient rides. Our vision is to create a world where getting from point A to point B is not only convenient but also an enjoyable experience.</p>
-
-			<h3 className='font-bold text-lg'>Who We Are:</h3>
-
 				<p>At UniCab, we are more than just a transportation service – we are a community dedicated to enhancing mobility for everyone. Our platform brings together passengers and drivers, fostering a sense of trust and dependability that goes beyond the ride itself.</p>
 
 			<h3 className='font-bold text-lg'>Our Mission:</h3>
@@ -24,16 +21,27 @@ const Drive = () => {
 				<Link href='/contact'> FAQs</Link>
 			</p>
 
-			<ul>
+			<div className='sm_column justify-between'>
 
-				<li><span className='font-bold'>Safety First:</span> Your safety is paramount to us. We meticulously screen and vet all our drivers, ensuring they meet our rigorous standards. Additionally, we provide 24/7 support and real-time tracking for added peace of mind during your rides.</li>
+				<div className='bg-white md:w-[23%] rounded-md p-4 border'>
+					<h4 className='font-bold mb-2'>Safety First:</h4> 
+					<p>Your safety is paramount to us. We meticulously screen and vet all our drivers, ensuring they meet our rigorous standards. Additionally, we provide 24/7 support and real-time tracking for added peace of mind during your rides.</p>
+				</div>
 
-				<li><span className='font-bold'>Exceptional Service:</span> Our commitment to excellence extends beyond the road. Our customer support team is always ready to assist you with any questions or concerns, providing prompt and personalized assistance.</li>
+				<div className='bg-white md:w-[23%] rounded-md p-4 border'>
+					<h4 className='font-bold'>Exceptional Service:</h4> 
+					Our commitment to excellence extends beyond the road. Our customer support team is always ready to assist you with any questions or concerns, providing prompt and personalized assistance.
+				</div>
 
-				<li> <span className='font-bold'>Affordability:</span> We believe that everyone should have access to reliable transportation without breaking the bank. Our competitive pricing and transparent fare structure ensure that you get the best value for your money.</li>
+				<div className='bg-white md:w-[23%] rounded-md p-4 border'> 
+					<h4 className='font-bold'>Affordability:</h4>
+					We believe that everyone should have access to reliable transportation without breaking the bank. Our competitive pricing and transparent fare structure ensure that you get the best value for your money.
+				</div>
 
-				<li><span className='font-bold'>Sustainability:</span> As part of our commitment to the environment, we encourage carpooling and the use of eco-friendly vehicles. By choosing UniCab, you contribute to a greener and more sustainable future.</li>
-			</ul>
+				<div className='bg-white md:w-[23%] rounded md p-4 border'>
+					<h4 className='font-bold'>Sustainability:</h4>
+					 As part of our commitment to the environment, we encourage carpooling and the use of eco-friendly vehicles. By choosing UniCab, you contribute to a greener and more sustainable future.</div>
+			</div>
 
 			<h3 className='font-bold text-lg'>Our Vision:</h3>
 

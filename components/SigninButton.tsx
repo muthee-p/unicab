@@ -9,9 +9,9 @@ const SigninButton = () => {
 
   if (session && session.user) {
     return (
-      <div className="flex flex-col md:flex-row gap-4 ml-auto md:items-center md:pt-4 pb-5 px-5 text-sm">
+      <div className="flex flex-col md:flex-row gap-4 ml-auto md:items-center md:pt-5 pb-5 px-5 text-sm">
         <Link href="/dashboard"
-             className=" text-gray-700 md:text-gray-600 md:underline-from-left md:px-3 md:py-2 md:mr-10 rounded-md md:text-sm font-medium">Dashboard
+             className=" text-gray-700 md:text-gray-600 underline-from-left md:px-3 md:py-2 md:mr-10 rounded-md md:text-sm font-medium">Dashboard
         </Link>
         <p className="text-sky-600 font-medium hidden md:block">Mambo, {session.user.name}</p>
         <button onClick={() => signOut()} className="bg-gray-200 text-gray-700 p-1 px-2 md:w-24 rounded-full font-medium hover:bg-gray-700 hover:text-gray-200">
