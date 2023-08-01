@@ -21,15 +21,17 @@ const Nav = () => {
       <div className="max-w-screen mx-auto px-4 sm:px-6 ">
         <div className="flex items-center h-20">
           <div className=" w-full flex items-center md:justify-around">
-            <div className="flex-shrink-0">
-              <Link href="/" className="text-white font-bold text-lg">
+            <div className="flex-shrink-0 flex flex-row">
+              <Link href="/">
                 <Image 
-                  src='/assets/logo.png'
+                  src='/assets/images/logo_icon.png'
                   alt='logo'
-                  width={120}
-                  height={120}
+                  width={35}
+                  height={35}
                   className='object-contain'
                   />
+                  <h1 className='font-bold text-2xl text-gray-900'>Uni
+                  <span className='text-blue-600'>Cab</span></h1>
               </Link>
             </div>
            

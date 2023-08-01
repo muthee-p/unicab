@@ -13,8 +13,8 @@ export default function Home() {
           <h2 className='font-bold text-5xl leading-tight'>
             Ride with Confidence,</h2>
             <h2 className='font-bold text-5xl leading-tight'>Earn With Comfort.</h2>
-          <h3 className='text-xl text-gray-400 mt-4'>
-            Driving Towards a Smoother Tomorrow.</h3>
+          <h4 className='text-xl text-gray-400 mt-4'>
+            Driving Towards a Smoother Tomorrow.</h4>
           <Link href='/drive'>
           <button className='main_btn'>
             Become a driver

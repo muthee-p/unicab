@@ -17,6 +17,12 @@
   }
 }
 
+@font-face {
+  font-family: 'Aristotelica Pro';
+  src: url('/fonts/Aristotelica Pro.otf') format('truetype');
+  /* Add additional font formats here (e.g., woff, woff2) for better browser support. */
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -27,6 +33,9 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+h1, h2, h3 {
+  font-family: 'Aristotelica Pro', sans-serif;
+}
 
 .main_btn {
   @apply rounded-full bg-blue-500 py-1.5 px-5 mt-8 mb-4 text-white transition-all hover:bg-gray-400 hover:text-gray-800 text-center text-sm flex items-center justify-center;
