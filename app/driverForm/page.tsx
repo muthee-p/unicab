@@ -101,7 +101,6 @@ const yearValue: string = formData.year !== null ? formData.year.toString() : ''
 
   };
   
-
   const handleColorChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedColor(event.target.value);
     setFormData((prevFormData) => ({ ...prevFormData, color: event.target.value }));
@@ -113,7 +112,6 @@ const yearValue: string = formData.year !== null ? formData.year.toString() : ''
   
   const handlePassportUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
   const file = event.target.files && event.target.files[0];
-  
   };
 
   const handleIDUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -135,159 +133,154 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
   const handleSection = () => {
     setSection(section + 1);
   };
+
   const handlePrevSection = () => {
     setSection(section -1);
   }
+  const progress = ((section - 1) / 3) * 100;
 
-  return (
-    <div className='flex min-h-screen flex-col items-center justify-between md:p-24 p-10'>
-      <form onSubmit={handleFormSubmit}
-      className='flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] md:min-w-[40%] min-w-[18rem]'>
+  const renderPersonalDetails = () => (
+    <div className='flex flex-col'>
+    <label className='mb-4 mt-4'>Personal details</label>
+    <label className='mb-4 mt-4'>Your name</label>
+      <span className='text-gray-500 text-sm'>
+        Please insert your name as it is on your ID card
+      </span>
+      <input 
+      name='name'
+        value={formData.name}
+        onChange={handleInputChange}
+        type='text' 
+        placeholder='example: John Omolo' 
+        className='rounded-lg p-2 mt-4' />
+    <label className='mt-4'>Your email</label>
+      <input
+      name='email'
+        value={formData.email}
+        onChange={handleInputChange} 
+        type='email' 
+        placeholder='example: john369@gmail.com' 
+        className='rounded-lg p-2 text-gray-700 mt-4' />
+    <label className=' mt-4'>Your phone number</label>
+    <input
+    name='phoneNumber' 
+      value={formData.phoneNumber}
+      onChange={handleInputChange}
+      type='number' 
+      placeholder='example: +254700000000' 
+      className='rounded-lg text-gray-700 p-2 mt-4' />
+  </div>
+  );
+  
+  const renderVehicleDetails = () => (
+    <div className='flex flex-col'>
+    <label className=' mt-4 mb-4'>Choose transportation means</label>
+      <select id='ride' value={ride} onChange={handleRide}
+        className= 'text-gray-500 rounded-lg p-2 mt-4'>
+        <option value="" className='rounded-lg p-2 mt-4'
+          >-- Select Ride --</option>
+        {rideOptions.map((option) => (
+          <option key={option} value={option}>{option}</option>
+        ))}
+      </select>
 
-        {section === 1 && 
-          <div className='flex flex-col'>
-            <label className='mb-4 mt-4'>Personal details</label>
-            <label className='mb-4 mt-4'>Your name</label>
-              <span className='text-gray-500 text-sm'>
-                Please insert your name as it is on your ID card
-              </span>
-              <input 
-              name='name'
-                value={formData.name}
-                onChange={handleInputChange}
-                type='text' 
-                placeholder='example: John Omolo' 
-                className='rounded-lg p-2 mt-4' />
-            <label className='mt-4'>Your email</label>
-              <input
-              name='email'
-                value={formData.email}
-                onChange={handleInputChange} 
-                type='email' 
-                placeholder='example: john369@gmail.com' 
-                className='rounded-lg p-2 text-gray-700 mt-4' />
-            <label className=' mt-4'>Your phone number</label>
-            <input
-            name='phoneNumber' 
-              value={formData.phoneNumber}
-              onChange={handleInputChange}
-              type='number' 
-              placeholder='example: +254700000000' 
-              className='rounded-lg text-gray-700 p-2 mt-4' />
-          </div>
-        }
-        
-        {section === 2 && 
-          <div className='flex flex-col'>
-            <label className=' mt-4 mb-4'>Choose transportation means</label>
-              <select id='ride' value={ride} onChange={handleRide}
-                className= 'text-gray-500 rounded-lg p-2 mt-4'>
-                <option value="" className='rounded-lg p-2 mt-4'
-                  >-- Select Ride --</option>
-                {rideOptions.map((option) => (
-                  <option key={option} value={option}>{option}</option>
-                ))}
-              </select>
-
-            {ride === 'car' && (
-                <div>
-                  <CarDetails
-                    selectedCarBrand={selectedCarBrand}
-                    handleCarBrand={handleCarBrand}
-                    formData={formData}
-                    handleInputChange={handleInputChange}
-                    selectedColor={selectedColor}
-                    handleColorChange={handleColorChange}
-                    selectedModel={selectedModel}
-                    handleModel={handleModel}
-                    yearValue={yearValue}
-                  />
-                </div>
-            )}
-
-            {ride === 'bodaboda' && (
-                <div>
-                    <BodaDetails
-                    selectedBodaBrand={selectedBodaBrand}
-                    handleBodaBrand={handleBodaBrand}
-                    formData={formData}
-                    handleInputChange={handleInputChange}
-                    selectedColor={selectedColor}
-                    handleColorChange={handleColorChange}
-                    selectedModel={selectedModel}
-                    handleModel={handleModel}
-                    yearValue={yearValue}
-                  />
-                </div>
-            )}
-          </div>
-      }
-        
-        {section === 3 && 
-          <div className='flex flex-col'>
-            <label className=' mt-4'>Legal Details</label>
-              <label className=' mt-4'>Your National ID Number</label>
-                <input 
-                name='nationalId'
-                  value={formData.nationalId}
-                  onChange={handleInputChange}
-                  type='number' placeholder='e.g. 009089'
-                  className='rounded-lg text-gray-700 p-2 mt-4' />
-              <label className=' mt-4'>Your Driver's License</label>
-                <input 
-                  name='driverLicense'
-                  value={formData.driverLicense}
-                  onChange={handleInputChange}
-                  type='number' placeholder='e.g. 345678'
-                  className='rounded-lg text-gray-700 p-2 mt-4' />
-          </div>
-
-      }
-        
-        {section === 4 && 
-          <div className='flex flex-col'>
-            <label className=' mt-4 text-xl'>Uploads</label>
-             <label className=' mt-4'>Upload your passport photo</label>
-                <input
-                  name='passportUpload'
-                  value={formData.passportUpload}
-                  onChange={handleInputChange}
-                  type='text' placeholder='e.g. 009089'
-                  className='rounded-lg text-gray-700 p-2 mt-4' />
-              <label className=' mt-4'>Upload your ID (front)</label>
-                <input 
-                  name='idUpload'
-                  value={formData.idUpload}
-                  onChange={handleInputChange}
-                  type='text' placeholder='e.g. 345678'
-                  className='rounded-lg text-gray-700 p-2 mt-4' />
-              <label className=' mt-4'>Upload your Driver's License</label>
-                <input 
-                  name='licenseUpload'
-                  value={formData.licenseUpload}
-                  onChange={handleInputChange}
-                  type='text' placeholder='e.g. 345678'
-                  className='rounded-lg text-gray-700 p-2 mt-4' />
-
-               <button type='submit' 
-              className='rounded-full bg-blue-500 mt-8 p-1 w-full'> Submit </button>
-       <div className= 'flex justify-between mt-8'>
-      
-       {section > 1 && (
-          <button type="button" 
-          onClick={handlePrevSection}
-          className='rounded-full w-32 bg-gray-500 hover:bg-gray-600 p-1'
-          >Back</button>
-        )}
-       {section < 4 && (
-          <button type="button" 
-          onClick={handleSection}
-          className='rounded-full w-32 bg-blue-500  p-1'
-          >Next</button>
-        )}
-       </div>
-        <p>By tapping «Submit» I agree with <Link href='/termsandconditions'>Terms and Conditions,</Link> I acknowledge and agree with processing and transfer of personal data according to conditions of <Link href='/privacypolicy'>Privacy Policy</Link></p>
+    {ride === 'car' && (
+        <div>
+          <CarDetails
+            selectedCarBrand={selectedCarBrand}
+            handleCarBrand={handleCarBrand}
+            formData={formData}
+            handleInputChange={handleInputChange}
+            selectedColor={selectedColor}
+            handleColorChange={handleColorChange}
+            selectedModel={selectedModel}
+            handleModel={handleModel}
+            yearValue={yearValue}
+          />
         </div>
+    )}
+
+    {ride === 'bodaboda' && (
+        <div>
+            <BodaDetails
+            selectedBodaBrand={selectedBodaBrand}
+            handleBodaBrand={handleBodaBrand}
+            formData={formData}
+            handleInputChange={handleInputChange}
+            selectedColor={selectedColor}
+            handleColorChange={handleColorChange}
+            selectedModel={selectedModel}
+            handleModel={handleModel}
+            yearValue={yearValue}
+          />
+        </div>
+    )}
+  </div>
+  );
+  const renderLegalDetails = () => (
+    <div className='flex flex-col'>
+    <label className=' mt-4'>Legal Details</label>
+      <label className=' mt-4'>Your National ID Number</label>
+        <input 
+        name='nationalId'
+          value={formData.nationalId}
+          onChange={handleInputChange}
+          type='number' placeholder='e.g. 009089'
+          className='rounded-lg text-gray-700 p-2 mt-4' />
+      <label className=' mt-4'>Your Driver's License</label>
+        <input 
+          name='driverLicense'
+          value={formData.driverLicense}
+          onChange={handleInputChange}
+          type='number' placeholder='e.g. 345678'
+          className='rounded-lg text-gray-700 p-2 mt-4' />
+  </div>
+  );
+  const renderUploads = () => (
+    <div className='flex flex-col'>
+    <label className=' mt-4 text-xl'>Uploads</label>
+     <label className=' mt-4'>Upload your passport photo</label>
+        <input
+          name='passportUpload'
+          value={formData.passportUpload}
+          onChange={handleInputChange}
+          type='text' placeholder='e.g. 009089'
+          className='rounded-lg text-gray-700 p-2 mt-4' />
+      <label className=' mt-4'>Upload your ID (front)</label>
+        <input 
+          name='idUpload'
+          value={formData.idUpload}
+          onChange={handleInputChange}
+          type='text' placeholder='e.g. 345678'
+          className='rounded-lg text-gray-700 p-2 mt-4' />
+      <label className=' mt-4'>Upload your Driver's License</label>
+        <input 
+          name='licenseUpload'
+          value={formData.licenseUpload}
+          onChange={handleInputChange}
+          type='text' placeholder='e.g. 345678'
+          className='rounded-lg text-gray-700 p-2 mt-4' />
+
+       <button type='submit' 
+      className='rounded-full bg-blue-500 mt-8 p-1 w-full'> Submit </button>
+
+    <p className='text-xs mt-8'>By tapping «Submit» I agree with <Link href='/termsandconditions' className='text-blue-600 hover:underline'>Terms and Conditions,</Link> I acknowledge and agree with processing and transfer of personal data according to conditions of <Link href='/privacypolicy' className='text-blue-600 hover:underline'>Privacy Policy</Link></p>
+  </div>
+  );
+  return (
+    <div className='flex min-h-screen flex-col items-center justify-between p-28 p-10'>
+      <form onSubmit={handleFormSubmit}
+        className='flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] w-[80%] md:w-[25rem]'>
+        <div className="progress-bar-container">
+          <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+        </div>        
+        {section === 1 && renderPersonalDetails()}
+        
+        {section === 2 && renderVehicleDetails()}
+        
+        {section === 3 && renderLegalDetails()}
+        
+        {section === 4 && renderUploads()
 
           // <div className='flex flex-col w-[17rem]'>
           //  <label className=' mt-4 text-xl'>Uploads</label>
@@ -310,7 +303,21 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
           // </div>
 
       }
-     
+         <div className= 'flex justify-between mt-8 gap-2'>
+
+{section > 1 && (
+  <button type="button" 
+    onClick={handlePrevSection}
+    className='rounded-full w-32 bg-gray-500 hover:bg-gray-600 p-1'
+    >Back</button>
+  )}
+{section < 4 && (
+  <button type="button" 
+    onClick={handleSection}
+    className='rounded-full w-32 bg-blue-500  p-1'
+  >Next</button>
+)}
+</div>
         
       </form>
     </div>

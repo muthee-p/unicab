@@ -9,7 +9,7 @@ export default function DashboardLayout({
     return(
         <>
             
-            <main className="px-8 pt-24 flex justify-around flex-col md:flex-row">
+            <main className="bg-gray-50 px-8 pt-24 flex justify-around flex-col md:flex-row">
                 <section className='left-0 w-[20%]'>
                     <LeftMenu />
                 </section>
@@ -17,7 +17,7 @@ export default function DashboardLayout({
                      {children}
                 </section>
                
-                <section className='right-0 w-[20%] border-l'>
+                <section className='bg-gray-100 rounded-md hidden md:block right-0 w-[20%]'>
                      <RightMenu/>
                 </section>
                

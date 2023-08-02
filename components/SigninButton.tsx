@@ -13,7 +13,8 @@ const SigninButton = () => {
         <Link href="/dashboard"
              className=" text-gray-700 md:text-gray-600 underline-from-left md:px-3 md:py-2 md:mr-10 rounded-md md:text-sm font-medium">Dashboard
         </Link>
-        <p className="text-sky-600 font-medium hidden md:block">Mambo, {session.user.name}</p>
+        <p className="text-sky-600 font-medium hidden md:block">
+          Mambo, {session.user.name}</p>
         <button onClick={() => signOut()} className="bg-gray-200 text-gray-700 p-1 px-2 md:w-24 rounded-full font-medium hover:bg-gray-700 hover:text-gray-200">
           Sign Out
         </button>
