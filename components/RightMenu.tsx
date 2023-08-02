@@ -4,7 +4,7 @@ import Link from 'next/link'
 const RightMenu = () => {
 	return (
 		<div className="p-3">
-			<Profile />
+			<Profile user={null} />
 			<h5>vehicles</h5>
 			<div className='flex flex-col'>
 				<Link href='/driverForm'>
