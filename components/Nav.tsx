@@ -15,22 +15,25 @@ const Nav = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
 
   return (
     <nav className=" w-full fixed z-20 bg-opacity-50 backdrop-blur-lg bg-[#F0f0f0] border-b ">
       <div className="max-w-screen mx-auto px-4 sm:px-6 ">
         <div className="flex items-center h-20">
           <div className=" w-full flex items-center md:justify-around">
-            <div className="flex-shrink-0 flex flex-row">
-              <Link href="/">
+            <div className="flex-shrink-0 ">
+              <Link href="/" className='inline-flex gap-2 items-end'>
                 <Image 
                   src='/assets/images/logo_icon.png'
                   alt='logo'
-                  width={35}
-                  height={35}
+                  width={38}
+                  height={38}
                   className='object-contain'
                   />
-                  <h1 className='font-bold text-2xl text-gray-900'>Uni
+                  <h1 className='font-extrabold text-3xl text-gray-900'>Uni
                   <span className='text-blue-600'>Cab</span></h1>
               </Link>
             </div>
@@ -85,15 +88,19 @@ const Nav = () => {
       <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
         <div className="px-2 pt-2 pb-2 sm:px-3">
          <Link href="/ride"
+         onClick={handleLinkClick}
            className="text-gray-700  block px-3 py-2 rounded-md text-base font-medium">Get a Ride
           </Link>
           <Link href="/about"
+          onClick={handleLinkClick}
            className="text-gray-700  block px-3 py-2 rounded-md text-base font-medium">About us
           </Link>
           <Link href="/drive"
+          onClick={handleLinkClick}
           className="text-gray-700  block px-3 py-2 rounded-md text-base font-medium">Drive
           </Link>
           <Link href="/contact"
+          onClick={handleLinkClick}
            className="text-gray-700  block px-3 py-2 rounded-md text-base font-medium">Contact us
           </Link>
         </div>

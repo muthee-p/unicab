@@ -39,14 +39,14 @@ export default function Home() {
             <button className='main_btn'>learn more</button>
           </Link>
         </section>
-        <h3>Earn money</h3>
+        {/* <h3>Earn money</h3>
         step1: create an account
         step 2: fill the drivers form
         step 3: upload necessary documents
         <Link href='/drive'>
           <button className='main_btn'>learn more</button>
         </Link>
-        <h4>Download the mobile app</h4>
+        <h4>Download the mobile app</h4> */}
       </div>
     </main>
   )

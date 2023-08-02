@@ -10,7 +10,7 @@ export default function DashboardLayout({
         <>
             
             <main className="bg-gray-50 px-8 pt-24 flex justify-around flex-col md:flex-row">
-                <section className='left-0 w-[20%]'>
+                <section className='left-0 w-[20%]  hidden md:block '>
                     <LeftMenu />
                 </section>
                 <section className="w-[60%]">
