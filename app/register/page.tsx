@@ -69,7 +69,7 @@ const Register = () => {
   };
 
   return (
-  <div className="main_div ">
+  <div className="main_div mb-20">
     <Formik
       initialValues={{
         name: '',
@@ -137,11 +137,12 @@ const Register = () => {
         </Form>
       )}
     </Formik>
-
+<div>
     <p> already have an account?</p>
-    <Link href="/login">
-      <p>Login</p>
+    <Link href="/login" >
+      <p className='text-blue-600 hover:underline'>Login</p>
     </Link>
+    </div>
   </div>
 );
 }

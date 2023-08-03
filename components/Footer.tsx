@@ -8,7 +8,7 @@ const Footer = () => {
 	return (
 		<div className= "bg-gray-700 p-4 w-full shadow-lg flex rounded-t-lg justify-between text-sm text-white">
 		  <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-		  <section className= 'flex justify-between p-2'>
+		  <section className= 'sm_column justify-between p-2'>
 			<div>
 		  		<h5 className='font-bold'>Download apps on</h5>
 		  		<Image 
@@ -19,6 +19,8 @@ const Footer = () => {
           		className='object-contain mt-4'
           	/>
 		  	</div>
+
+		  <div className=''>
 		  <div className='flex flex-col'>
 		  	<h5 className='font-bold'>Navigation</h5>
 		  	<Link href="/ride" className='my-2 underline-from-left'>Home</Link>
@@ -33,6 +35,8 @@ const Footer = () => {
 			<Link href="/privacypolicy" className='my-2 underline-from-left'>Privacy Policy</Link>
 			<Link href="/termsandcondtions" className='my-2 underline-from-left'>Terms of Service</Link>
 		</div>
+		</div>
+
 		<div>
 		<h5 className='font-bold'>Our Socials</h5>
 		<div className='inline-flex gap-12 p-4'>

@@ -93,11 +93,12 @@ const Login = () => {
           </Form>
         )}
       </Formik>
-  
+      <div>
       <p>Don't have an account?</p>
       <Link href="/register">
-        <p>Register</p>
+        <p className='text-blue-600 hover:underline'>Register</p>
       </Link>
+      </div>
     </div>
   );
   
