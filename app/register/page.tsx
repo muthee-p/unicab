@@ -16,6 +16,7 @@ type RegisterFormData = {
 
 const Register = () => {
 	const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [formData, setFormData] = useState<RegisterFormData>({
     name: '',
     email: '',
@@ -61,13 +62,14 @@ const Register = () => {
      
     } catch (error) {
       console.error(error);
+      setErrorMessage('Registration failed. Please try again.');
     }finally {
     setSubmitting(false);
   }
   };
 
   return (
-  <div className="main_div">
+  <div className="main_div ">
     <Formik
       initialValues={{
         name: '',
@@ -80,7 +82,7 @@ const Register = () => {
     >
       {({ isSubmitting }) => (
         <Form
-          className="flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] md:min-w-[40%] min-w-[18rem]"
+          className="flex flex-col bg-gray-700 text-gray-200 p-4  rounded-2xl md:min-h-[60%] md:min-w-[40%] min-w-[18rem]"
         >
           <label className="mb-4 mt-4">Register to Drive</label>
           <label className="mb-4 mt-4">Your name</label>

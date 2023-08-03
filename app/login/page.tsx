@@ -16,6 +16,8 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const validationSchema = Yup.object({
     email: Yup.string().email('Invalid email address').required('Email is required'),
     password: Yup.string().required('Password is required'),
@@ -32,6 +34,7 @@ const Login = () => {
       });
     } catch (error) {
       console.error(error);
+      setErrorMessage('Registration failed. Please try again.');
     } finally {
       setSubmitting(false);
     }
@@ -48,7 +51,7 @@ const Login = () => {
   // }
 
   return (
-    <div className="main_div">
+    <div className="main_div pb-28">
       Welcome to drive
       <Formik
         initialValues={{

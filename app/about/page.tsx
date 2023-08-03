@@ -16,7 +16,7 @@ const Drive = () => {
           	/>
 		
 			<div className='md:w-[40%]'>
-				<h2 className='font-bold text-2xl mb-8'>About Us</h2>
+				<h2 className='font-bold text-2xl mb-8 underline underline-offset-8 decoration-blue-600'>About Us</h2>
 				<p>Welcome to UniCab, where we strive to revolutionize transportation and connect people with seamless, 
 					reliable, and efficient rides. Our vision is to create a world where getting from point A to point B 
 					is not only convenient but also an enjoyable experience.</p>
@@ -31,12 +31,8 @@ const Drive = () => {
 
 		<section className='mt-12'>
 			<h3 className='font-bold text-lg'>What Sets Us Apart:</h3>
-			
-			<p>View our 
-				<Link href='/contact'> FAQs</Link>
-			</p>
 
-			<div className='sm_column justify-between'>
+			<div className='sm_column justify-between gap-2'>
 
 				<div className='bg-white md:w-[23%] rounded-md p-4 border'>
 					<h4 className='font-bold mb-2'>Safety First:</h4> 
@@ -63,7 +59,8 @@ const Drive = () => {
 			
 			<div className='md:w-[40%]'>
 				
-				<h3 className='font-bold text-lg mb-4'>Our Mission:</h3>
+				<h3 className='font-bold text-xl mb-4'>
+					<span className='underline underline-offset-8 decoration-blue-600'>Our</span> Mission:</h3>
 				<p>Our mission is to redefine urban transportation and make it accessible to all. We aim to provide safe, affordable, and sustainable rides that reduce traffic congestion and contribute positively to the environment. We continuously innovate and leverage cutting-edge technology to improve our services, ensuring that every journey with us is smooth and stress-free.</p>
 
 			</div>
@@ -87,7 +84,9 @@ const Drive = () => {
           	/>
 			<div className='md:w-[40%]'>
 			
-          		<h3 className='font-bold text-2xl mb-4'>Our Vision:</h3>
+          		<h3 className='font-bold text-xl mb-4'>
+          		<span className='underline underline-offset-8 decoration-blue-600'>
+          		Our</span> Vision:</h3>
 				<p>We envision a world where transportation is not a barrier but an enabler. Whether it's commuting to work, exploring a new city, or simply enjoying a night out, we want to be your go-to choice for all your travel needs. Our vision extends beyond the present, and we are constantly innovating to shape the future of transportation.</p>
 	
 			</div>

@@ -6,8 +6,8 @@ const Drive = () => {
 		<div className="main_div">
 			<h2 className='my-2 font-bold text-xl'>Welcome to Unicab Driver</h2>
 			<h4 className='my-2 font-bold text-lg'>Become a driver in three easy steps</h4>
-			<div className='flex justify-between gap-2'>
-				<div className='bg-white p-2 rounded-md flex flex-col items-center'>
+			<div className='sm_column justify-between gap-2'>
+				<div className=' basis-1/3 bg-white p-2 rounded-md flex flex-col items-center'>
 				<h5>Step 1.</h5>
 				<Image 
           				src='/assets/icons/signup.ico'
@@ -18,7 +18,7 @@ const Drive = () => {
           			/>
 				<p>Create an account</p>
 				</div>
-				<div className='bg-white p-2 rounded-md flex flex-col items-center'>
+				<div className='basis-1/3 bg-white p-2 rounded-md flex flex-col items-center'>
 				<h5>Step 2.</h5>
 				<Image 
           				src='/assets/icons/clipboard.ico'
@@ -29,7 +29,7 @@ const Drive = () => {
           			/>
 				<p>Fill the driver form</p>
 				</div>
-				<div className='bg-white p-2 rounded-md border flex flex-col items-center'>
+				<div className='basis-1/3 bg-white p-2 rounded-md border flex flex-col items-center'>
 				<h5>Step 3.</h5>
 				<Image 
           				src='/assets/icons/customer.ico'
@@ -88,12 +88,14 @@ const Drive = () => {
 				<p>Your Passport photo</p>
 			</div>
 			</div>
+			<div className='flex justify-between gap-2'>
 			<Link href='/login'>
 				<button className="main_btn">Login</button>
 			</Link>
 			<Link href='/register'>
 				<button className="main_btn">Become a driver</button>
 			</Link>
+			</div>
 		</div>
 		)
 }

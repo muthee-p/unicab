@@ -33,15 +33,27 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+body {
+  @apply leading-loose md:leading-relaxed;
+}
 h1, h2, h3 {
   font-family: 'Aristotelica Pro', sans-serif;
 }
+
+h3{
+  @apply text-xl
+}
+
+h4{
+  @apply text-lg
+}
+
 
 .main_btn {
   @apply rounded-full bg-blue-500 py-1.5 px-5 mt-8 mb-4 text-white transition-all hover:bg-gray-400 hover:text-gray-800 text-center text-sm flex items-center justify-center;
 }
 .main_div{
-  @apply flex min-h-screen flex-col items-center justify-between md:p-24 md:pt-32 ;
+  @apply flex min-h-screen flex-col items-center justify-between md:p-24 md:pt-32 pt-28;
 }
 .second_div{
   @apply z-10 w-full max-w-5xl items-center justify-between text-sm lg:flex;
