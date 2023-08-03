@@ -22,9 +22,12 @@ const SigninButton = () => {
     );
   }
   return (
-    <button onClick={() => signIn()} className="main_btn ml-auto pb-5 px-5">
+    <div className="flex items-center md:pb-5 px-5">
+      <button onClick={() => signIn()} className="main_btn ml-auto w-full">
       Sign In
-    </button>
+    </button> 
+    </div>
+    
   );
 };
 

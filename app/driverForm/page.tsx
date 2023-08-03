@@ -268,9 +268,9 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
   </div>
   );
   return (
-    <div className='flex min-h-screen flex-col items-center justify-between p-28 p-10'>
+    <div className='flex min-h-screen flex-col items-center justify-between'>
       <form onSubmit={handleFormSubmit}
-        className='flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] w-[80%] md:w-[25rem]'>
+        className='flex flex-col bg-gray-700 text-gray-200 mt-28 mb-28 p-4 rounded-2xl md:min-h-[60%] w-[80%] md:w-[25rem]'>
         <div className="progress-bar-container">
           <div className="progress-bar" style={{ width: `${progress}%` }}></div>
         </div>        
