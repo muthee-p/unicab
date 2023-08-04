@@ -39,6 +39,18 @@ export default function Home() {
             <button className='main_btn'>learn more</button>
           </Link>
         </section>
+        <section className='sm_column justify-around m-12 p-8 bg-gray-50 rounded-lg mt-12' >
+        <Image 
+          src='/assets/images/g-maps.png'
+          alt='logo'
+          width={400}
+          height={400}
+          className='object-contain'
+          />
+          <p className='md:w-[40%]'>We are delighted to have you on board as a valued customer of our cutting-edge transportation service. 
+					Whether you're commuting to work, exploring a new city, or heading out for a night on the town, 
+					Unicab is here to make your journey seamless and enjoyable.</p>
+        </section>
         {/* <h3>Earn money</h3>
         step1: create an account
         step 2: fill the drivers form

@@ -14,16 +14,12 @@ const Ride = () => {
           		height={400}
           		className='object-contain'
           	/>
-				<div className='md:w-[40%]'>
-					<p>We are delighted to have you on board as a valued customer of our cutting-edge transportation service. 
-					Whether you're commuting to work, exploring a new city, or heading out for a night on the town, 
-					Unicab is here to make your journey seamless and enjoyable.</p>
-
-				<p>With a vast network of dedicated drivers, state-of-the-art technology, and a commitment to safety and reliability,
+				<div className='md:w-[40%]'>				
+					<p>With a vast network of dedicated drivers, state-of-the-art technology, and a commitment to safety and reliability,
 					 we aim to redefine your travel experience. Our user-friendly app allows you to request rides with just a few taps, 
 					 track your driver in real-time, and access an array of transportation options tailored to your needs.</p>
 
-				<p>At UniCab, we put your comfort and satisfaction first. Our drivers are carefully vetted, ensuring a safe and 
+					<p>At UniCab, we put your comfort and satisfaction first. Our drivers are carefully vetted, ensuring a safe and 
 					friendly journey every time. From our transparent pricing to our 24/7 customer support, we strive to provide 
 					you with an unmatched level of convenience and peace of mind.</p>
 
