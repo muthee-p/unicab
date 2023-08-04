@@ -46,7 +46,7 @@ const Register = () => {
   const handleFormSubmit = async (values: FormikValues, { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void}) => {
 
     try {
-      const response = await fetch('https://unicab.vercel.app/api/user', {
+      const response = await fetch('/api/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
