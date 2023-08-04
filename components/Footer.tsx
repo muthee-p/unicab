@@ -8,7 +8,7 @@ const Footer = () => {
 	return (
 		<div className= "bg-gray-700 p-4 w-full shadow-lg flex rounded-t-lg justify-between text-sm text-white">
 		  <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-		  <section className= 'sm_column justify-between p-2'>
+		  <section className= 'sm_column md:justify-between justify-center p-2'>
 			<div>
 		  		<h5 className='font-bold'>Download apps on</h5>
 		  		<Image 
@@ -20,7 +20,7 @@ const Footer = () => {
           	/>
 		  	</div>
 
-		  <div className='flex flex-row'>
+		  <div className='flex flex-row justify-between md:gap-16'>
 		  <div className='flex flex-col'>
 		  	<h5 className='font-bold'>Navigation</h5>
 		  	<Link href="/ride" className='my-2 underline-from-left'>Home</Link>
@@ -51,7 +51,7 @@ const Footer = () => {
 					</Link>
 					<Link href='www.instagram.com'>
 					<Image 
-          				src='/assets/icons/whiteig.ico'
+          				src='/assets/icons/ig.png'
           				alt='Instagram Icon'
           				width={20}
           				height={20}
@@ -69,8 +69,8 @@ const Footer = () => {
 					</Link>
 					<Link href='www.gmail.com'>
 					<Image 
-          				src='/assets/icons/whitemail.ico'
-          				alt='Twitter Icon'
+          				src='/assets/icons/email.png'
+          				alt='Email Icon'
           				width={20}
           				height={20}
          				className='object-contain bg-white rounded-full hover:bg-blue-600 hover:rounded-full'

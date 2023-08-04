@@ -13,6 +13,8 @@ const colors = ['red', 'orange', 'gray', 'black', 'blue', 'green','pink', 'purpl
 
 
 const DriverForm = () => {
+  const CLOUD_NAME = 'da6pphh5i'
+    const UPLOAD_PRESET = 'unicab'
 
     const router = useRouter();
     const {data: session } = useSession();
@@ -37,8 +39,17 @@ const yearValue: string = formData.year !== null ? formData.year.toString() : ''
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    const file = e.target.files && e.target.files[0];
+    if (name === 'passportPhoto' && file) {
+      setPassportPhoto(file);
+    } else if (name === 'licensePhoto' && file) {
+      setLicensePhoto(file);
+    } else if (name === 'idPhoto' && file) {
+      setIdPhoto(file);
+    } else {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: name==='year'? Number(value) : value }));
   };
+};
 
  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -74,6 +85,9 @@ const yearValue: string = formData.year !== null ? formData.year.toString() : ''
   const [selectedModel, setSelectedModel] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [section, setSection] = useState(1);
+  const [passportPhoto, setPassportPhoto] = useState<File | null>(null);
+  const [idPhoto, setIdPhoto] = useState<File | null>(null);
+  const [licensePhoto, setLicensePhoto] = useState<File | null>(null);
   
   const handleRide = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setRide(event.target.value);
@@ -110,24 +124,79 @@ const yearValue: string = formData.year !== null ? formData.year.toString() : ''
     setFormData((prevFormData) => ({ ...prevFormData, model: event.target.value }));
   };
   
-  const handlePassportUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-  const file = event.target.files && event.target.files[0];
+  const handlePassportUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    if(!passportPhoto) return
+
+    const formData = new FormData()
+
+    formData.append("file",passportPhoto)
+    formData.append("upload_preset", UPLOAD_PRESET)
+
+    try{
+      const rest = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+        method: "POST",
+        body: formData
+      })
+      const data = await rest.json()
+      const passportUpload =  data['secure_url']
+      console.log(passportUpload)
+      return passportUpload
+    } catch (error){
+      console.log(error)
+    }
+
+  
   };
 
-  const handleIDUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-  const file = event.target.files && event.target.files[0];
-  if (file) {
-    // Do something with the uploaded file
-    console.log('Uploaded file:', file);
-  }
+  const handleIDUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    if(!idPhoto) return
+
+    const formData = new FormData()
+
+    formData.append("file",idPhoto)
+    formData.append("upload_preset", UPLOAD_PRESET)
+
+    try{
+      const rest = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+        method: "POST",
+        body: formData
+      })
+      const data = await rest.json()
+      const idUpload =  data['secure_url']
+      console.log(idUpload)
+      return idUpload
+    } catch (error){
+      console.log(error)
+    }
+
+  // const file = event.target.files && event.target.files[0];
+  // if (file) {
+  //   // Do something with the uploaded file
+  //   console.log('Uploaded file:', file);
+  // }
 }
 
-const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-  const file = event.target.files && event.target.files[0];
-  if (file) {
-    // Do something with the uploaded file
-    console.log('Uploaded file:', file);
-  };
+const handleLicenseUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  if(!licensePhoto) return
+
+  const formData = new FormData()
+
+  formData.append("file",licensePhoto)
+  formData.append("upload_preset", UPLOAD_PRESET)
+
+  try{
+    const rest = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+      method: "POST",
+      body: formData
+    })
+    const data = await rest.json()
+    const licenseUpload =  data['secure_url']
+    console.log(licenseUpload)
+    return licenseUpload
+  } catch (error){
+    console.log(error)
+  }
+
   };
 
   const handleSection = () => {
@@ -152,7 +221,7 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         onChange={handleInputChange}
         type='text' 
         placeholder='example: John Omolo' 
-        className='rounded-lg p-2 mt-4' />
+        className='rounded-lg p-2 mt-4 text-gray-900' />
     <label className='mt-4'>Your email</label>
       <input
       name='email'
@@ -240,26 +309,29 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     <div className='flex flex-col'>
     <label className=' mt-4 text-xl'>Uploads</label>
      <label className=' mt-4'>Upload your passport photo</label>
-        <input
+     <input type="file" accept="image/*" 
+      // value={formData.passportUpload}
+      onChange={handleInputChange}
+        className='rounded-lg p-2 mt-4' />
+
+        {/* <input
           name='passportUpload'
-          value={formData.passportUpload}
+          
           onChange={handleInputChange}
           type='text' placeholder='e.g. 009089'
-          className='rounded-lg text-gray-700 p-2 mt-4' />
+          className='rounded-lg text-gray-700 p-2 mt-4' /> */}
       <label className=' mt-4'>Upload your ID (front)</label>
-        <input 
-          name='idUpload'
-          value={formData.idUpload}
+        <input type="file" accept="image/*"
+          //name='idUpload'
+         // value={formData.idUpload}
           onChange={handleInputChange}
-          type='text' placeholder='e.g. 345678'
-          className='rounded-lg text-gray-700 p-2 mt-4' />
+          className=' p-2 mt-4' />
       <label className=' mt-4'>Upload your Driver's License</label>
-        <input 
-          name='licenseUpload'
-          value={formData.licenseUpload}
+        <input type="file" accept="image/*"
+          //name='licenseUpload'
+         // value={formData.licenseUpload}
           onChange={handleInputChange}
-          type='text' placeholder='e.g. 345678'
-          className='rounded-lg text-gray-700 p-2 mt-4' />
+          className=' p-2 mt-4' />
 
        <button type='submit' 
       className='rounded-full bg-blue-500 mt-8 p-1 w-full'> Submit </button>
@@ -285,9 +357,7 @@ const handleLicenseUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
           // <div className='flex flex-col w-[17rem]'>
           //  <label className=' mt-4 text-xl'>Uploads</label>
           //    <label className=' mt-4'>Upload your passport photo</label>
-          //  <input type="file" accept="image/*" 
-          //    onChange={handlePassportUpload}
-          //    className='rounded-lg p-2 mt-4' />
+          //  
           //    <label className=' mt-4'>Upload your ID (front)</label>
           //      <input type="file" accept="image/*" 
           //        onChange={handleIDUpload} 

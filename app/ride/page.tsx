@@ -27,7 +27,7 @@ const Ride = () => {
 				
 			</div>
 			<div className='sm_column justify-around m-12 p-8 bg-gray-50 rounded-lg mt-12'>
-				<div className='flex flex-col md:pr-32 md:border-r'>
+				<div className='flex flex-col md:pr-32 md:border-r mb-4 md:md-0'>
 				<h3>Scan here to download app</h3>
 				<Image 
           		src='/assets/images/qr-code.png'

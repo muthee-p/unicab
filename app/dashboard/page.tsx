@@ -1,7 +1,11 @@
+"use client"
 import Link from 'next/link'
 import Chart from '@components/Chart';
 
+
 const Dashboard = () => {
+
+
 	return (
 		<div className="flex min-h-screen flex-col items-center justify-between">
 			<h2 className='text-2xl font-bold'>Overview</h2>

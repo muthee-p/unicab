@@ -33,24 +33,33 @@ export default function Home() {
         
       </div>
         <section className="py-8">
-          <h2 className="text-2xl font-bold mb-4">About Us</h2>
+          <h2 className="text-2xl font-bold mb-4 ">
+            <span className='underline underline-offset-8 decoration-blue-600'>About</span> Us</h2>
             <p>We strive to revolutionize transportation and connect people with seamless, reliable, and efficient rides. Our vision is to create a world where getting from point A to point B is not only convenient but also an enjoyable experience.</p>
           <Link href='/about'>
             <button className='main_btn'>learn more</button>
           </Link>
         </section>
-        <section className='sm_column justify-around m-12 p-8 bg-gray-50 rounded-lg mt-12' >
+        <section className='sm_column justify-around md:m-12 p-8 bg-gray-50 rounded-lg mt-12' >
         <Image 
-          src='/assets/images/g-maps.png'
+          src='/assets/images/g_maps.png'
           alt='logo'
-          width={400}
-          height={400}
+          width={300}
+          height={300}
           className='object-contain'
           />
-          <p className='md:w-[40%]'>We are delighted to have you on board as a valued customer of our cutting-edge transportation service. 
+          <div className='md:w-[40%] flex flex-col'>
+          <h2 className="text-2xl font-bold mb-4 ">
+            <span className='underline underline-offset-8 decoration-blue-600'>Dear</span> Customer</h2>
+            <p >We are delighted to have you on board as a valued customer of our cutting-edge transportation service. 
 					Whether you're commuting to work, exploring a new city, or heading out for a night on the town, 
 					Unicab is here to make your journey seamless and enjoyable.</p>
-        </section>
+          <Link href='/ride'>
+            <button className='main_btn'>learn more</button>
+          </Link>
+
+          </div>
+                  </section>
         {/* <h3>Earn money</h3>
         step1: create an account
         step 2: fill the drivers form
