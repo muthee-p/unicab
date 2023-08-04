@@ -46,7 +46,7 @@ const Register = () => {
   const handleFormSubmit = async (values: FormikValues, { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void}) => {
 
     try {
-      const response = await fetch('/api/user', {
+      const response = await fetch('https://unicab.vercel.app/api/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,6 +70,8 @@ const Register = () => {
 
   return (
   <div className="main_div mb-20">
+    {errorMessage && <p>{errorMessage}</p>}
+
     <Formik
       initialValues={{
         name: '',
@@ -80,6 +82,7 @@ const Register = () => {
       validationSchema={validationSchema}
       onSubmit={handleFormSubmit}
     >
+      
       {({ isSubmitting }) => (
         <Form
           className="flex flex-col bg-gray-700 text-gray-200 p-4  rounded-2xl md:min-h-[60%] md:min-w-[40%] min-w-[18rem]"
@@ -137,7 +140,7 @@ const Register = () => {
         </Form>
       )}
     </Formik>
-<div>
+<div className='inline-flex'>
     <p> already have an account?</p>
     <Link href="/login" >
       <p className='text-blue-600 hover:underline'>Login</p>

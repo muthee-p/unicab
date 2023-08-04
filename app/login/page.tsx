@@ -53,6 +53,7 @@ const Login = () => {
   return (
     <div className="main_div pb-28">
       Welcome to drive
+      {errorMessage && <p>{errorMessage}</p>}
       <Formik
         initialValues={{
           email: '',
@@ -65,7 +66,7 @@ const Login = () => {
           <Form
             className="flex flex-col bg-gray-700 text-gray-200 p-4 rounded-2xl md:min-h-[60%] md:min-w-[40%] min-w-[18rem]"
           >
-            <label className="mb-4 mt-4">Personal details</label>
+            <label className="mb-4 mt-4">Sign In</label>
             <label className="mt-4">Your email</label>
             <Field
               type="email"
@@ -93,7 +94,7 @@ const Login = () => {
           </Form>
         )}
       </Formik>
-      <div>
+      <div className="inline-flex">
       <p>Don't have an account?</p>
       <Link href="/register">
         <p className='text-blue-600 hover:underline'>Register</p>

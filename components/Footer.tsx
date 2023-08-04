@@ -20,7 +20,7 @@ const Footer = () => {
           	/>
 		  	</div>
 
-		  <div className=''>
+		  <div className='flex flex-row'>
 		  <div className='flex flex-col'>
 		  	<h5 className='font-bold'>Navigation</h5>
 		  	<Link href="/ride" className='my-2 underline-from-left'>Home</Link>

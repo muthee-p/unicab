@@ -6,10 +6,10 @@ const Drive = () => {
 		<div className="main_div">
 		<div className="second_div flex-col px-16">
 			
-		<section className='mt-12 p-12 sm_column items-center justify-between gap-4'>
+		<section className='md:mt-12 md:p-12 sm_column items-center justify-between gap-4'>
 			<Image 
           		src='/assets/images/driver2.jpg'
-          		alt='logo'
+          		alt='driver'
           		width={200}
           		height={200}
           		className='object-contain'
@@ -66,7 +66,7 @@ const Drive = () => {
 			</div>
 			<Image 
           		src='/assets/images/driver3.jpg'
-          		alt='logo'
+          		alt='driver'
           		width={400}
           		height={400}
           		className='object-contain'
@@ -77,7 +77,7 @@ const Drive = () => {
 		<section className='mt-12 mb-12 sm_column justify-between gap-4'>
 			<Image 
           		src='/assets/images/passanger2.jpg'
-          		alt='logo'
+          		alt='passanger'
           		width={400}
           		height={400}
           		className='object-contain'
