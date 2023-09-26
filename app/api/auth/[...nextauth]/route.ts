@@ -13,7 +13,7 @@ const handler = NextAuth({
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        const res = await fetch("https://unicab.vercel.app/", {
+        const res = await fetch("https://unicab.vercel.app/api/login", {
         // http://localhost:3000/  
         method: "POST",
           headers: {
