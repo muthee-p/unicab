@@ -34,7 +34,7 @@ const Login = () => {
       });
     } catch (error) {
       console.error(error);
-      setErrorMessage('Registration failed. Please try again.');
+      setErrorMessage('Login failed. Please try again.');
     } finally {
       setSubmitting(false);
     }

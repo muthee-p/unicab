@@ -55,7 +55,7 @@ const Footer = () => {
           				alt='Instagram Icon'
           				width={20}
           				height={20}
-         				className='object-contain bg-white rounded-full hover:bg-blue-600 hover:rounded-full'
+         				className='object-contain rounded-full hover:bg-blue-600 hover:rounded-full'
           			/>
 					</Link>
 					<Link href='www.twitter.com'>
@@ -73,7 +73,7 @@ const Footer = () => {
           				alt='Email Icon'
           				width={20}
           				height={20}
-         				className='object-contain bg-white rounded-full hover:bg-blue-600 hover:rounded-full'
+         				className='object-contain rounded-full hover:bg-blue-600 hover:rounded-full'
           			/>
 					</Link>
 					</div>
